@@ -6,6 +6,9 @@ from selenium import webdriver
 from pydub import AudioSegment
 from pydub.silence import split_on_silence
 import time
+
+with mss(display=':0') as sct:
+...     sct.shot()
 import pyautogui
 
 # ===============================================================
