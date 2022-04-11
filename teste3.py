@@ -1,30 +1,15 @@
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
 import os
-import time
+from selenium import webdriver
+
+op = webdriver.ChromeOptions()
+op.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+op.add_argument("--headless")
+op.add_argument("--no-sandbox")
+op.add_argument("--disable-dev-sh-usage")
 
 
-def scrape_top_news():
+driver = webdriver.Chrome(executable_path= os.eviron.get("CHROMEDRIVER_PATH"), chrome_options=op)
 
-    browser = webdriver.Chrome(
-        executable_path="/Users/akjasim/chromedriver/chromedriver")
+driver.get("https://youtube.com")
 
-    wait = WebDriverWait(browser, 10)
-    browser.get('https://news.ycombinator.com/')
-    element_list = wait.until(
-        EC.presence_of_all_elements_located((By.CSS_SELECTOR, ".title > a"))
-    )
-    for element in element_list:
-        try:
-            title, url = element.text, element.get_attribute('href')
-            print("Title:", title, "\nURL:", url, end="\n\n")
-        except Exception as e:
-            print(e)
-    time.sleep(2)
-    browser.quit()
-
-
-if __name__ == '__main__':
-    scrape_top_news()
+print(driver.page_source)
