@@ -2,3 +2,4 @@ pyautogui
 SpeechRecognition
 selenium
 pydub
+urllib3
