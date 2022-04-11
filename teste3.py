@@ -8,7 +8,7 @@ from pydub.silence import split_on_silence
 import time
 
 with mss(display=':0') as sct:
-...     sct.shot()
+    sct.shot()
 import pyautogui
 
 # ===============================================================
