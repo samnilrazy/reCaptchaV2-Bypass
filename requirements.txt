@@ -1,1 +1,4 @@
-bs4
+pyautogui
+SpeechRecognition
+selenium
+pydub
