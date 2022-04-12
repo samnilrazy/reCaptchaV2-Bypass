@@ -51,7 +51,7 @@ recaptcha_control_frame = None
 
 # //*[@id="link-view"]/button
 #driver.find_element_by_xpath('//*[@id="link-view"]/button').click()
-driver.find_element(by=By.XPATH, value='//*[@id="link-view"]/button')
+driver.find_element(By.XPATH, value='//*[@id="link-view"]/button').click()
 time.sleep(1)
 print("Passou da primeira etapa")
 
