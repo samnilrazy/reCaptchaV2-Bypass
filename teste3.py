@@ -57,11 +57,8 @@ try:
 except:
     print("Anuncio não encontrado")
     
-try:
-    driver.find_element(By.XPATH, value='//*[@id="link-view"]/button').click() # clica continuar
-    time.sleep(2)
-except:
-    print("Botão não encontrado ID: 458965")
+driver.find_element(By.XPATH, value='//*[@id="link-view"]/button').click() # clica continuar
+
 print("Passou da primeira etapa")
 
 #WebDriverWait(driver, 20).until(EC.frame_to_be_available_and_switch_to_it((By.XPATH,"//iframe[starts-with(@src, 'https://www.recaptcha.net/recaptcha/api2/anchor')]")))
