@@ -13,6 +13,10 @@ from pydub import AudioSegment
 #driver = webdriver.Chrome(ChromeDriverManager().install()) 
 
 options = webdriver.ChromeOptions() 
+options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+options.add_argument("--headless")
+options.add_argument("--no-sandbox")
+options.add_argument("--disable-dev-sh-usage")
 options.add_argument("--disable-blink-features")
 options.add_argument('--disable-blink-features=AutomationControlled')
 options.add_argument("start-maximized")
@@ -29,7 +33,7 @@ chrome_options = webdriver.ChromeOptions()
 chrome_options.add_argument(f'--proxy-server{PROXY}')
 
 #driver = webdriver.Chrome(options=options) #VScode
-driver = webdriver.Chrome(executable_path= os.environ.get("CHROMEDRIVER_PATH"), chrome_options=op) # Heroku
+driver = webdriver.Chrome(executable_path= os.environ.get("CHROMEDRIVER_PATH"), chrome_options=options) # Heroku
 
 #driver.execute_cdp_cmd('Network.setUserAgentOverride', {"userAgent": 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.53 Safari/537.36'})
 driver.execute_script("Object.defineProperty(navigator, 'webdriver', {get: () => undefined})")
