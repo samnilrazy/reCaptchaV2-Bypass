@@ -83,7 +83,7 @@ WebDriverWait(driver, 20).until(EC.frame_to_be_available_and_switch_to_it((By.XP
 
 #framee = driver.find_element(By.XPATH, value='/html/body/div[5]/div[4]/iframe')
 #driver.switch_to_frame(frame) #localiza iframe
-Webdriver.switch_to.frame(recaptcha_control_frame)
+WebdriverWait.switch_to.frame(recaptcha_control_frame)
                        
 print("Passou da terceira etapa(q era localizar xpath)")
 time.sleep(4)
