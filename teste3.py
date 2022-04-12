@@ -66,8 +66,8 @@ time.sleep(3)
 #recaptcha_control_frame = None
 #recaptcha_challenge_frame = None
 
-driver.switch_to.frame(recaptcha_control_frame)
-driver.switch_to.default_content()
+#driver.switch_to.frame(recaptcha_control_frame)
+#driver.switch_to.default_content()
 
 
 
