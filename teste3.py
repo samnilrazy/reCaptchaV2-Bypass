@@ -8,6 +8,9 @@ import time
 import os
 from pydub import AudioSegment
 
+s = Service('/app/.chromedriver/bin/chromedriver')
+driver = webdriver.Chrome(service=s)
+
 
 
 #driver = webdriver.Chrome(ChromeDriverManager().install()) 
@@ -35,7 +38,7 @@ chrome_options = webdriver.ChromeOptions()
 chrome_options.add_argument(f'--proxy-server{PROXY}')
 
 #driver = webdriver.Chrome(options=options) #VScode
-driver = webdriver.Chrome(executable_path= os.environ.get("CHROMEDRIVER_PATH"), chrome_options=options) # Heroku
+driver = webdriver.Chrome(executable_path= os.environ.get("CHROMEDRIVER_PATH"), chrome_options=options, service=s) # Heroku
 
 #driver.execute_cdp_cmd('Network.setUserAgentOverride', {"userAgent": 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.53 Safari/537.36'})
 driver.execute_script("Object.defineProperty(navigator, 'webdriver', {get: () => undefined})")
