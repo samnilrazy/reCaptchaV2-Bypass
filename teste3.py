@@ -52,7 +52,7 @@ recaptcha_control_frame = None
 # //*[@id="link-view"]/button
 #driver.find_element_by_xpath('//*[@id="link-view"]/button').click()
 driver.find_element(By.XPATH, value='//*[@id="link-view"]/button').click()
-time.sleep(1)
+time.sleep(2)
 print("Passou da primeira etapa")
 
 #WebDriverWait(driver, 20).until(EC.frame_to_be_available_and_switch_to_it((By.XPATH,"//iframe[starts-with(@src, 'https://www.recaptcha.net/recaptcha/api2/anchor')]")))
@@ -76,9 +76,9 @@ driver.switch_to.default_content()
 #WebDriverWait(driver, 10).until(EC.frame_to_be_available_and_switch_to_it((By.XPATH,"/html/body/div[4]/div[4]/iframe")))
 #WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="recaptcha-audio-button"]'))).click()
 #driver.find_element_by_xpath('//*[@id="recaptcha-audio-button"]').click()
-driver.find_element(By.XPATH, value='//*[@id="recaptcha-audio-button"]').click()
+driver.find_element(By.ID, 'recaptcha-audio-button').click()
 print("Passou da terceira etapa etapa")
-time.sleep(1)
+time.sleep(3)
 
 driver.switch_to.frame(recaptcha_control_frame)
 driver.switch_to.default_content()
