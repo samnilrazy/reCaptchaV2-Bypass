@@ -49,7 +49,9 @@ driver.get("https://iir.ai/OZkS")
 
 recaptcha_control_frame = None
 
-
+# //*[@id="link-view"]/button
+find_element_by_xpath('//*[@id="link-view"]/button').click()
+time.sleep(1)
 
 WebDriverWait(driver, 20).until(EC.frame_to_be_available_and_switch_to_it((By.XPATH,"//iframe[starts-with(@src, 'https://www.recaptcha.net/recaptcha/api2/anchor')]")))
 WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, "//span[@id='recaptcha-anchor']"))).click()
