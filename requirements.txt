@@ -1,4 +1,4 @@
 selenium
 pydub
 SpeechRecognition
-urllib
+urllib3
