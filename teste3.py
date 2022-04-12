@@ -73,8 +73,6 @@ time.sleep(3)
 #frames = driver.find_elements_by_tag_name("iframe")
 #recaptcha_control_frame = None
 #recaptcha_challenge_frame = None
-rrr = driver.find_element(By.XPATH, value='/html/body/div[5]/div[4]/iframe') #/html/body/iframe[2]
-driver.switch_to.frame(rrr)
 #driver.switch_to.default_content()
 tp = WebDriverWait(driver, 20).until(EC.frame_to_be_available_and_switch_to_it((By.XPATH,"/html/body/div[5]/div[4]/iframe")))
 print(tp)
@@ -88,6 +86,13 @@ print(tp)
 #driver.switch_to.frame(rrr)
                        
 print("Passou da terceira etapa(q era localizar xpath)")
+
+
+rrr = driver.find_element(By.SELECTOR, value='body > div:nth-child(18) > div:nth-child(4) > iframe') #XPATH = /html/body/div[5]/div[4]/iframe # SELECTOR = body > div:nth-child(18) > div:nth-child(4) > iframe
+driver.switch_to.frame(rrr)
+
+
+
 time.sleep(4)
 print("pequeno teste")
 driver.find_element(By.ID, 'recaptcha-audio-button').click()
