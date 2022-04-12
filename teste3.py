@@ -79,7 +79,7 @@ driver.switch_to.default_content()
 #WebDriverWait(driver, 20).until(EC.frame_to_be_available_and_switch_to_it((By.XPATH,"//iframe[starts-with(@src, 'https://www.recaptcha.net/recaptcha/api2/bframe')]")))
 WebDriverWait(driver, 20).until(EC.frame_to_be_available_and_switch_to_it((By.XPATH,"/html/body/div[5]/div[4]/iframe"))) #localiza iframe
 
-framee = driver.find_element(By.XPATH, value='//*[@id="recaptcha-audio-button"]')
+framee = driver.find_element(By.XPATH, value='/html/body/div[5]/div[4]/iframe')
 driver.switch_to_frame(frame) #localiza iframe
                        
 print("Passou da terceira etapa")
