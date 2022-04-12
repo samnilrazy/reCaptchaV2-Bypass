@@ -57,7 +57,8 @@ print("Passou da primeira etapa")
 
 #WebDriverWait(driver, 20).until(EC.frame_to_be_available_and_switch_to_it((By.XPATH,"//iframe[starts-with(@src, 'https://www.recaptcha.net/recaptcha/api2/anchor')]")))
 #WebDriverWait(driver, 10).until(EC.frame_to_be_available_and_switch_to_it((By.XPATH,'//*[@id="captchaShortlink"]/div/div/iframe')))
-driver.find_element_by_xpath('//*[@id="captchaShortlink"]/div/div/iframe').click()
+#driver.find_element_by_xpath('//*[@id="captchaShortlink"]/div/div/iframe').click()
+driver.find_element(By.XPATH, value='//*[@id="captchaShortlink"]/div/div/iframe').click()
 print("Passou da segunda etapa")
 #WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, "//span[@id='recaptcha-anchor']"))).click()
 time.sleep(3) 
@@ -74,7 +75,8 @@ driver.switch_to.default_content()
 #driver.switch_to.frame(recaptcha_challenge_frame)
 #WebDriverWait(driver, 10).until(EC.frame_to_be_available_and_switch_to_it((By.XPATH,"/html/body/div[4]/div[4]/iframe")))
 #WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="recaptcha-audio-button"]'))).click()
-driver.find_element_by_xpath('//*[@id="recaptcha-audio-button"]').click()
+#driver.find_element_by_xpath('//*[@id="recaptcha-audio-button"]').click()
+driver.find_element(By.XPATH, value='//*[@id="recaptcha-audio-button"]').click()
 print("Passou da terceira etapa etapa")
 time.sleep(1)
 
@@ -85,11 +87,12 @@ driver.switch_to.default_content()
 # //*[@id=":2"] = play
 # /html/body/div/div/div[7]/a = download
 #WebDriverWait(driver, 10).until(EC.frame_to_be_available_and_switch_to_it((By.XPATH,"/html/body/div[4]/div[4]/iframe")))
-src = driver.find_element_by_id("audio-source").get_attribute("src")
+#src = driver.find_element_by_id("audio-source").get_attribute("src") #
+src = driver.driver.find_element(By.ID, "audio-sourced").get_attribute("src")
 src = str(src)
 print("O link é: {}".format(src))
 time.sleep(1)
-WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, '/html/body/div/div/div[7]/a'))).click()
+#WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, '/html/body/div/div/div[7]/a'))).click()
 
 
 
