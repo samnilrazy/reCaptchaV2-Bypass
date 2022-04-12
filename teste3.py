@@ -88,10 +88,10 @@ print(tp)
 print("Passou da terceira etapa(q era localizar xpath)")
 
 
-#rrr = driver.find_element(By.CSS_SELECTOR, value='body > div:nth-child(18) > div:nth-child(4) > iframe') #XPATH = /html/body/div[5]/div[4]/iframe # SELECTOR = body > div:nth-child(18) > div:nth-child(4) > iframe
-#driver.switch_to.frame(rrr)
+rrr = driver.find_element(By.CSS_SELECTOR, value='iframe[title="o desafio reCAPTCHA expira em dois minutos"]') #XPATH = /html/body/div[5]/div[4]/iframe # SELECTOR = body > div:nth-child(18) > div:nth-child(4) > iframe
+driver.switch_to.frame(rrr)
 
-
+# <button class="rc-button goog-inline-block rc-button-audio" title="Receber um desafio de áudio" value="" id="recaptcha-audio-button" tabindex="1"></button>
 
 time.sleep(4)
 print("pequeno teste")
