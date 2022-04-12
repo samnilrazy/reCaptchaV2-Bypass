@@ -51,14 +51,15 @@ recaptcha_control_frame = None
 
 # //*[@id="link-view"]/button
 #driver.find_element_by_xpath('//*[@id="link-view"]/button').click()
-driver.find_element(By.XPATH, value='//*[@id="link-view"]/button').click()
+driver.find_element(By.XPATH, value='/html/body/div/div/div/span').click() # fecha anuncio
+driver.find_element(By.XPATH, value='//*[@id="link-view"]/button').click() # clica continuar
 time.sleep(2)
 print("Passou da primeira etapa")
 
 #WebDriverWait(driver, 20).until(EC.frame_to_be_available_and_switch_to_it((By.XPATH,"//iframe[starts-with(@src, 'https://www.recaptcha.net/recaptcha/api2/anchor')]")))
 #WebDriverWait(driver, 10).until(EC.frame_to_be_available_and_switch_to_it((By.XPATH,'//*[@id="captchaShortlink"]/div/div/iframe')))
 #driver.find_element_by_xpath('//*[@id="captchaShortlink"]/div/div/iframe').click()
-driver.find_element(By.XPATH, value='//*[@id="captchaShortlink"]/div/div/iframe').click()
+driver.find_element(By.XPATH, value='//*[@id="captchaShortlink"]/div/div/iframe').click() # clica na caixa de verificação
 print("Passou da segunda etapa")
 #WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, "//span[@id='recaptcha-anchor']"))).click()
 time.sleep(3) 
