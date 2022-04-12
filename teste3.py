@@ -7,6 +7,7 @@ import speech_recognition as sr
 import time
 import os
 from pydub import AudioSegment
+from selenium.webdriver.chrome.service import Service
 
 s = Service('/app/.chromedriver/bin/chromedriver')
 driver = webdriver.Chrome(service=s)
