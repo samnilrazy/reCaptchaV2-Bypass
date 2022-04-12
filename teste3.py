@@ -14,7 +14,7 @@ driver = webdriver.Chrome(service=s)
 
 
 
-#driver = webdriver.Chrome(ChromeDriverManager().install()) 
+#driver = webdriver.Chrome(ChromeDriverManager().install()) #
 
 options = webdriver.ChromeOptions() 
 options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
