@@ -52,6 +52,7 @@ recaptcha_control_frame = None
 # //*[@id="link-view"]/button
 #driver.find_element_by_xpath('//*[@id="link-view"]/button').click()
 driver.find_element(By.XPATH, value='/html/body/div/div/div/span').click() # fecha anuncio
+time.sleep(2)
 driver.find_element(By.XPATH, value='//*[@id="link-view"]/button').click() # clica continuar
 time.sleep(2)
 print("Passou da primeira etapa")
