@@ -66,14 +66,14 @@ time.sleep(3)
 #recaptcha_control_frame = None
 #recaptcha_challenge_frame = None
 
-#driver.switch_to.frame(recaptcha_control_frame)
-#driver.switch_to.default_content()
+driver.switch_to.frame(recaptcha_control_frame)
+driver.switch_to.default_content()
 
 
 #WebDriverWait(driver, 20).until(EC.frame_to_be_available_and_switch_to_it((By.XPATH,"//iframe[starts-with(@src, 'https://www.recaptcha.net/recaptcha/api2/bframe')]")))
-WebDriverWait(driver, 20).until(EC.frame_to_be_available_and_switch_to_it((By.XPATH,"/html/body/div[5]/div[4]/iframe")))
+WebDriverWait(driver, 20).until(EC.frame_to_be_available_and_switch_to_it((By.XPATH,"/html/body/div[5]/div[4]/iframe"))) #localiza iframe
 print("Passou da terceira etapa")
-WebDriverWait(driver, 10).until(EC.frame_to_be_available_and_switch_to_it((By.XPATH,'//*[@id="recaptcha-audio-button"]')))
+WebDriverWait(driver, 10).until(EC.frame_to_be_available_and_switch_to_it((By.XPATH,'//*[@id="recaptcha-audio-button"]'))).click() # localiza e clica no fone
 #frames = driver.find_elements_by_tag_name("iframe")
 #driver.switch_to.frame(recaptcha_challenge_frame)
 #WebDriverWait(driver, 10).until(EC.frame_to_be_available_and_switch_to_it((By.XPATH,"/html/body/div[4]/div[4]/iframe")))
