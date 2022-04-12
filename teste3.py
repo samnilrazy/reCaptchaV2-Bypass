@@ -88,15 +88,15 @@ print(tp)
 print("Passou da terceira etapa(q era localizar xpath)")
 
 
-rrr = driver.find_element(By.CSS_SELECTOR, value='body > div:nth-child(18) > div:nth-child(4) > iframe') #XPATH = /html/body/div[5]/div[4]/iframe # SELECTOR = body > div:nth-child(18) > div:nth-child(4) > iframe
-driver.switch_to.frame(rrr)
+#rrr = driver.find_element(By.CSS_SELECTOR, value='body > div:nth-child(18) > div:nth-child(4) > iframe') #XPATH = /html/body/div[5]/div[4]/iframe # SELECTOR = body > div:nth-child(18) > div:nth-child(4) > iframe
+#driver.switch_to.frame(rrr)
 
 
 
 time.sleep(4)
 print("pequeno teste")
-driver.find_element(By.ID, 'recaptcha-audio-button').click()
-#driver.find_element(By.XPATH, value='//*[@id="recaptcha-audio-button"]').click(
+#driver.find_element(By.ID, 'recaptcha-audio-button').click()
+driver.find_element(By.XPATH, value='//*[@id="recaptcha-audio-button"]').click(
 print("passou do pequeno teste")
 
 WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="recaptcha-audio-button"]'))).click()
