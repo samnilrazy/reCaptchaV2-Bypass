@@ -43,9 +43,11 @@ driver = webdriver.Chrome(executable_path= os.environ.get("CHROMEDRIVER_PATH"), 
 
 #driver.execute_cdp_cmd('Network.setUserAgentOverride', {"userAgent": 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.53 Safari/537.36'})
 driver.execute_script("Object.defineProperty(navigator, 'webdriver', {get: () => undefined})")
+time.sleep(2)
 
 
 driver.get("https://iir.ai/OZkS")
+time.sleep(3)
 
 recaptcha_control_frame = None
 
