@@ -80,12 +80,12 @@ driver.switch_to.default_content()
 WebDriverWait(driver, 20).until(EC.frame_to_be_available_and_switch_to_it((By.XPATH,"/html/body/div[5]/div[4]/iframe"))) #localiza iframe
 
 
-#driver.switch_to_frame(driver.find_element(By.XPATH, '//*[@id="recaptcha-audio-button"]')
+driver.switch_to_frame(driver.find_element(By.XPATH, '//*[@id="recaptcha-audio-button"]') #localiza iframe
                        
 print("Passou da terceira etapa")
 time.sleep(2)
-WebDriverWait(driver, 10).until(EC.frame_to_be_available_and_switch_to_it((By.XPATH,'//*[@id="recaptcha-audio-button"]'))).click() # localiza e clica no fone
-#driver.find_element(By.XPATH, '//*[@id="recaptcha-audio-button"]').click()
+#WebDriverWait(driver, 10).until(EC.frame_to_be_available_and_switch_to_it((By.XPATH,'//*[@id="recaptcha-audio-button"]'))).click() # localiza e clica no fone
+driver.find_element(By.XPATH, '//*[@id="recaptcha-audio-button"]').click()
 # se não funcionar com time sleep, comente a linha 87 e descomente as linhas 83 e 88
                        
                        
