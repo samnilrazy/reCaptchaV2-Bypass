@@ -80,10 +80,11 @@ driver.switch_to.frame(recaptcha_control_frame)
 
 #WebDriverWait(driver, 20).until(EC.frame_to_be_available_and_switch_to_it((By.XPATH,"//iframe[starts-with(@src, 'https://www.recaptcha.net/recaptcha/api2/bframe')]")))
 rr = WebDriverWait(driver, 20).until(EC.frame_to_be_available_and_switch_to_it((By.XPATH,"/html/body/div[5]/div[4]/iframe"))) #localiza iframe e muda pra ele
+rrr = driver.find_element(By.XPATH, value='/html/body/div[5]/div[4]/iframe')
 
 #framee = driver.find_element(By.XPATH, value='/html/body/div[5]/div[4]/iframe')
 #driver.switch_to_frame(frame) #localiza iframe
-driver.switch_to.frame(rr)
+driver.switch_to.frame(rrr)
                        
 print("Passou da terceira etapa(q era localizar xpath)")
 time.sleep(4)
