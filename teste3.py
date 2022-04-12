@@ -70,7 +70,9 @@ time.sleep(3)
 #driver.switch_to.default_content()
 
 
-WebDriverWait(driver, 20).until(EC.frame_to_be_available_and_switch_to_it((By.XPATH,"//iframe[starts-with(@src, 'https://www.recaptcha.net/recaptcha/api2/bframe')]")))
+#WebDriverWait(driver, 20).until(EC.frame_to_be_available_and_switch_to_it((By.XPATH,"//iframe[starts-with(@src, 'https://www.recaptcha.net/recaptcha/api2/bframe')]")))
+WebDriverWait(driver, 20).until(EC.frame_to_be_available_and_switch_to_it((By.XPATH,"/html/body/div[5]/div[4]/iframe")))
+print("Passou da terceira etapa etapa")
 WebDriverWait(driver, 10).until(EC.frame_to_be_available_and_switch_to_it((By.ID,'recaptcha-audio-button')))
 #frames = driver.find_elements_by_tag_name("iframe")
 #driver.switch_to.frame(recaptcha_challenge_frame)
@@ -78,7 +80,7 @@ WebDriverWait(driver, 10).until(EC.frame_to_be_available_and_switch_to_it((By.ID
 #WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="recaptcha-audio-button"]'))).click()
 #driver.find_element_by_xpath('//*[@id="recaptcha-audio-button"]').click()
 #driver.find_element(By.ID, 'recaptcha-audio-button').click()
-print("Passou da terceira etapa etapa")
+print("Passou da quarta etapa etapa")
 time.sleep(3)
 
 driver.switch_to.frame(recaptcha_control_frame)
