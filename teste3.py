@@ -91,12 +91,18 @@ driver.switch_to.default_content()
 
 
 driver.switch_to.frame(frames[-1])
+
 driver.switch_to.default_content()
 
-frames = driver.find_elements(By.TAG_NAME, "iframe")
+# /html/body/div[2]/div[4] xpath div
+#frames = driver.find_elements(By.TAG_NAME, "iframe")
+frames = driver.find_elements(By.XPATH, "/html/body/div[2]/div[4]")
 time.sleep(10)
 print("2_Os frames são: {}".format(frames))
-driver.switch_to.frame(frames[2])
+driver.switch_to.frame(frames[0])
+
+frames = driver.find_elements(By.TAG_NAME, "iframe")
+print("os frames dentro da div são: {}".format(frames))
 
 #/html/body/div[2]/div[4]/iframe
 
