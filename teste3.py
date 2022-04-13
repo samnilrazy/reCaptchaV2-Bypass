@@ -71,7 +71,7 @@ print("Passou da primeira etapa")
 #driver.find_element_by_xpath('//*[@id="captchaShortlink"]/div/div/iframe').click()
 
 time.sleep(20)
-frames = driver.find_elements(By.TAG_NAME, 'iframe')
+frames = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.TAG_NAME, "iframe")))
 print("1_Os frames são: {}".format(frames))
 
 time.sleep(5)
