@@ -66,23 +66,28 @@ print("Passou da primeira etapa")
 #WebDriverWait(driver, 20).until(EC.frame_to_be_available_and_switch_to_it((By.XPATH,"//iframe[starts-with(@src, 'https://www.recaptcha.net/recaptcha/api2/anchor')]")))
 #WebDriverWait(driver, 10).until(EC.frame_to_be_available_and_switch_to_it((By.XPATH,'//*[@id="captchaShortlink"]/div/div/iframe')))
 #driver.find_element_by_xpath('//*[@id="captchaShortlink"]/div/div/iframe').click()
-driver.find_element(By.XPATH, value='//*[@id="captchaShortlink"]/div/div/iframe').click() # clica na caixa de verificação
-print("Passou da segunda etapa")
-#WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, "//span[@id='recaptcha-anchor']"))).click()
-time.sleep(3) 
-
 
 frames = driver.find_elements(By.TAG_NAME, 'iframe')
 print("1_Os frames são: {}".format(frames))
 
-frames = driver.find_elements(By.XPATH, '/html/body/div[5]/div[4]/iframe')
-print("2_Os frames são: {}".format(frames))
+driver.switch_to.frame(frame[0])
+driver.find_element(By.XPATH, value='//*[@id="captchaShortlink"]/div/div/iframe').click() # clica na caixa de verificação
+
+driver.switch_to.default_content()
+
+driver.find_element(By.XPATH, '/html/body/div[5]/div[4]/iframe').find_elements(By.TAG_NAME, 'iframe')
+driver.switch_to.frame(frame[-1])
+
+print("Passou da segunda etapa")
+#WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, "//span[@id='recaptcha-anchor']"))).click()
+time.sleep(3)
+#frames = driver.find_elements(By.XPATH, '/html/body/div[5]/div[4]/iframe')
+#print("2_Os frames são: {}".format(frames))
 
 
 #recaptcha_control_frame = None
 #recaptcha_challenge_frame = None
-#driver.switch_to.default_content()
-WebDriverWait(driver, 30).until(EC.frame_to_be_available_and_switch_to_it((By.XPATH,"/html/body/div[5]/div[4]/iframe")))
+#WebDriverWait(driver, 30).until(EC.frame_to_be_available_and_switch_to_it((By.XPATH,"/html/body/div[5]/div[4]/iframe")))
 
 
 #WebDriverWait(driver, 20).until(EC.frame_to_be_available_and_switch_to_it((By.XPATH,"//iframe[starts-with(@src, 'https://www.recaptcha.net/recaptcha/api2/bframe')]")))
@@ -103,8 +108,9 @@ print("Passou da terceira etapa(q era localizar xpath)")
 
 time.sleep(4)
 print("pequeno teste")
-WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="recaptcha-audio-button"]'))).click()
-#driver.find_element(By.ID, 'recaptcha-audio-button').click()
+#WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="recaptcha-audio-button"]'))).click()
+driver.find_element(By.ID, 'recaptcha-audio-button').click()
+driver.switch_to.default_content()
 #driver.find_element(By.XPATH, value='//*[@id="recaptcha-audio-button"]').click()
 print("passou do pequeno teste")
 
