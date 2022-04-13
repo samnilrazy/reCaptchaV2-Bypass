@@ -92,8 +92,9 @@ driver.switch_to.default_content()
 
 driver.switch_to.frame(frames[-1])
 
-#frames = driver.find_elements(By.TAG_NAME, 'iframe')
-driver.switch_to.frame(frames[2])
+frames = driver.find_elements(By.TAG_NAME, 'iframe')
+print("2_Os frames são: {}".format(frames))
+#driver.switch_to.frame(frames[2])
 
 
 print("Passou da segunda etapa")
