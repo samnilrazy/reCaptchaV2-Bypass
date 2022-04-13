@@ -1,1 +1,1 @@
-web: python "teste3.py"
+web: python teste3.py
