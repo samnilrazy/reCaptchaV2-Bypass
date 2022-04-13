@@ -87,7 +87,7 @@ print(tp)
                        
 print("Passou da terceira etapa(q era localizar xpath)")
 
-iframes = WebDriverWait(driver, 10).until(EC.frame_to_be_available_and_switch_to_it((By.XPATH ,'/html/body/div[5]/div[4]/iframe'))
+iframes = WebDriverWait(driver, 10).until(EC.frame_to_be_available_and_switch_to_it((By.XPATH ,'/html/body/div[5]/div[4]/iframe')))
 
 #iframes = driver.find_elements(By.TAG_NAME, 'iframe')
 print("Os iframes disponiveis são: {}".format(iframes))
