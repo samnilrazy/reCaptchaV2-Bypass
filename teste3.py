@@ -127,12 +127,12 @@ print("Passou da terceira etapa(q era localizar xpath)")
 
 # <button class="rc-button goog-inline-block rc-button-audio" title="Receber um desafio de áudio" value="" id="recaptcha-audio-button" tabindex="1"></button>
 
-time.sleep(4)
+time.sleep(2)
 print("pequeno teste")
 #WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="recaptcha-audio-button"]'))).click()
 #driver.find_element(By.ID, 'recaptcha-audio-button').click()
-ts = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="recaptcha-audio-button"]')))
-time.sleep(10)
+ts = WebDriverWait(driver, 5).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="recaptcha-audio-button"]')))
+time.sleep(5)
 ts.click()
 driver.switch_to.default_content()
 print("Clicou no botão de audio")
