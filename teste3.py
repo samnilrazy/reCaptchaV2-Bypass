@@ -75,7 +75,7 @@ time.sleep(5)
 frames2 = driver.find_elements(By.XPATH, '/html/body/div[5]/div[4]/iframe')
 print("2_Os frames são: {}".format(frames2))
 
-driver.switch_to.frame(frames[3])
+driver.switch_to.frame(frames[1])
 driver.find_element(By.XPATH, value='//*[@id="recaptcha-anchor"]/div[1]').click
 
 driver.switch_to.default_content()
