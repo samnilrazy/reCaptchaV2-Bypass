@@ -72,7 +72,7 @@ frames = driver.find_elements(By.TAG_NAME, 'iframe')
 print("1_Os frames são: {}".format(frames))
 
 time.sleep(5)
-frames2 = driver.find_element(By.NAME, "reCaptcha"))
+frames2 = driver.find_element(By.NAME, "reCaptcha")
 print("2_Os frames são: {}".format(frames2))
 
 driver.switch_to.frame(frames[3])
