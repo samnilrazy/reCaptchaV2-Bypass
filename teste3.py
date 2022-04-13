@@ -87,7 +87,7 @@ time.sleep(10)
 tp.click
 print("clicou na caixa")
 
-#driver.switch_to.default_content()
+driver.switch_to.default_content()
 
 
 driver.switch_to.frame(frames[-1])
