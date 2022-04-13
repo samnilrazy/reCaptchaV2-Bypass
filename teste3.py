@@ -87,13 +87,13 @@ print(tp)
                        
 print("Passou da terceira etapa(q era localizar xpath)")
 
-iframes = WebDriverWait(driver, 15).until(EC.find_elements(By.TAG_NAME, 'iframe'))
+iframes = WebDriverWait(driver, 10).until(EC.frame_to_be_available_and_switch_to_it((By.XPATH ,'/html/body/div[5]/div[4]/iframe'))
 
 #iframes = driver.find_elements(By.TAG_NAME, 'iframe')
 print("Os iframes disponiveis são: {}".format(iframes))
 
-rrr = driver.find_element(By.CSS_SELECTOR, value='iframe[title="o desafio reCAPTCHA expira em dois minutos"]') #XPATH = /html/body/div[5]/div[4]/iframe # SELECTOR = body > div:nth-child(18) > div:nth-child(4) > iframe
-driver.switch_to.frame(rrr)
+#rrr = driver.find_element(By.CSS_SELECTOR, value='iframe[title="o desafio reCAPTCHA expira em dois minutos"]') #XPATH = /html/body/div[5]/div[4]/iframe # SELECTOR = body > div:nth-child(18) > div:nth-child(4) > iframe
+#driver.switch_to.frame(rrr)
 
 # <button class="rc-button goog-inline-block rc-button-audio" title="Receber um desafio de áudio" value="" id="recaptcha-audio-button" tabindex="1"></button>
 
