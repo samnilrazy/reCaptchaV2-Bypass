@@ -86,7 +86,8 @@ print(tp)
 #driver.switch_to.frame(rrr)
                        
 print("Passou da terceira etapa(q era localizar xpath)")
-
+iframes = driver.find_elements(By.TAG_NAME, 'iframe')
+print("Os iframes disponiveis são: {}".format(iframes)
 
 rrr = driver.find_element(By.CSS_SELECTOR, value='iframe[title="o desafio reCAPTCHA expira em dois minutos"]') #XPATH = /html/body/div[5]/div[4]/iframe # SELECTOR = body > div:nth-child(18) > div:nth-child(4) > iframe
 driver.switch_to.frame(rrr)
