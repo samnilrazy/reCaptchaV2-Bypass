@@ -89,7 +89,7 @@ print("clicou na caixa")
 
 driver.switch_to.default_content()
 
-driver.find_element(By.XPATH, '/html/body/div[5]/div[4]/iframe').find_elements(By.TAG_NAME, 'iframe')
+driver.find_elements(By.TAG_NAME, 'iframe')
 driver.switch_to.frame(frames[-1])
 
 print("Passou da segunda etapa")
@@ -123,8 +123,12 @@ print("Passou da terceira etapa(q era localizar xpath)")
 time.sleep(4)
 print("pequeno teste")
 #WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="recaptcha-audio-button"]'))).click()
-driver.find_element(By.ID, 'recaptcha-audio-button').click()
+#driver.find_element(By.ID, 'recaptcha-audio-button').click()
+ts = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.ID, 'recaptcha-audio-button')))
+time.sleep(10)
+ts.click()
 driver.switch_to.default_content()
+print("Clicou no botão de audio")
 #driver.find_element(By.XPATH, value='//*[@id="recaptcha-audio-button"]').click()
 print("passou do pequeno teste")
 
