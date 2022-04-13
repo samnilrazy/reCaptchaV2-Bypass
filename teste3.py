@@ -78,7 +78,7 @@ time.sleep(5)
 #frames2 = driver.find_element(By.NAME, "reCaptcha")
 #print("2_Os frames são: {}".format(frames2))
 
-driver.switch_to.frame(frames[0])
+driver.switch_to.frame(frames[3])
 
 tp = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="recaptcha-anchor"]/div[1]')))
 #driver.find_element(By.ID, 'recaptcha-anchor').click
@@ -89,8 +89,12 @@ print("clicou na caixa")
 
 driver.switch_to.default_content()
 
-driver.find_elements(By.TAG_NAME, 'iframe')
+
 driver.switch_to.frame(frames[-1])
+
+frames = driver.find_elements(By.TAG_NAME, 'iframe')
+driver.switch_to.frame(frames[3])
+
 
 print("Passou da segunda etapa")
 #WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, "//span[@id='recaptcha-anchor']"))).click()
