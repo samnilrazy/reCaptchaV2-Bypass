@@ -77,7 +77,7 @@ time.sleep(5)
 
 driver.switch_to.frame(frames[3])
 
-tp = driver.find_element(By.XPATH, value='//*[@id="recaptcha-anchor"]/div[1]')
+tp = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, "//span[@id='recaptcha-anchor']")))
 #driver.find_element(By.ID, 'recaptcha-anchor').click
 #tp = driver.find_element(By.CLASS_NAME, "recaptcha-checkbox-border")
 time.sleep(10)
