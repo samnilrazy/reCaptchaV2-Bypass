@@ -98,6 +98,10 @@ time.sleep(10)
 print("2_Os frames são: {}".format(frames))
 driver.switch_to.frame(frames[-1])
 
+#/html/body/div[2]/div[4]/iframe
+WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, "/html/body/div[2]/div[4]/iframe"))).click()
+print("clicou no iframe")
+
 
 print("Passou da segunda etapa")
 #WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, "//span[@id='recaptcha-anchor']"))).click()
