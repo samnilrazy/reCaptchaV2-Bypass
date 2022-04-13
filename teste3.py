@@ -67,8 +67,12 @@ print("Passou da primeira etapa")
 #WebDriverWait(driver, 10).until(EC.frame_to_be_available_and_switch_to_it((By.XPATH,'//*[@id="captchaShortlink"]/div/div/iframe')))
 #driver.find_element_by_xpath('//*[@id="captchaShortlink"]/div/div/iframe').click()
 
+time.sleep(5)
 frames = driver.find_elements(By.TAG_NAME, 'iframe')
 print("1_Os frames são: {}".format(frames))
+
+frames2 = driver.find_elements(By.XPATH, '/html/body/div[5]/div[4]/iframe')
+print("2_Os frames são: {}".format(frames2))
 
 driver.switch_to.frame(frames[0])
 driver.find_element(By.XPATH, value='//*[@id="recaptcha-anchor"]/div[1]').click
