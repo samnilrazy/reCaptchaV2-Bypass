@@ -14,7 +14,6 @@ print("Iniciando...")
 
 s = Service('/app/.chromedriver/bin/chromedriver')
 
-path = os.path.abspath(os.getcdw())
 
 driver = webdriver.Chrome(service=s)
 
