@@ -72,7 +72,7 @@ print("Passou da segunda etapa")
 time.sleep(3) 
 
 
-frames = driver.find_element(By.TAG_NAME, 'iframe')
+frames = driver.find_elements(By.TAG_NAME, 'iframe')
 print("Os frames são: {}".format(frames))
 
 
