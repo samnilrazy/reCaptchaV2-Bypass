@@ -71,7 +71,7 @@ frames = driver.find_elements(By.TAG_NAME, 'iframe')
 print("1_Os frames são: {}".format(frames))
 
 driver.switch_to.frame(frames[0])
-driver.find_element(By.XPATH, value='//*[@id="captchaShortlink"]/div/div/iframe').click() # clica na caixa de verificação
+driver.find_element(By.XPATH, value='//*[@id="recaptcha-anchor"]/div[1]').click
 
 driver.switch_to.default_content()
 
