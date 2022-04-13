@@ -68,7 +68,7 @@ print("Passou da primeira etapa")
 #driver.find_element_by_xpath('//*[@id="captchaShortlink"]/div/div/iframe').click()
 
 time.sleep(5)
-frames = driver.find_elements(By.TAG_NAME, 'iframe')
+frames = driver.find_elements(By.TAG_NAME, 'iframe').text
 print("1_Os frames são: {}".format(frames))
 
 time.sleep(5)
