@@ -46,7 +46,7 @@ driver.execute_script("Object.defineProperty(navigator, 'webdriver', {get: () =>
 time.sleep(2)
 
 
-driver.get("https://iir.ai/OZkS")
+driver.get("https://www.google.com/recaptcha/api2/demo")
 time.sleep(3)
 
 recaptcha_control_frame = None
@@ -59,7 +59,10 @@ try:
 except:
     print("Anuncio não encontrado")
     
-driver.find_element(By.XPATH, value='//*[@id="link-view"]/button').click() # clica continuar
+try:
+    driver.find_element(By.XPATH, value='//*[@id="link-view"]/button').click() # clica continuar
+except:
+    print("botão após anuncio também não encontrado")
 
 print("Passou da primeira etapa")
 
@@ -75,13 +78,14 @@ time.sleep(5)
 #frames2 = driver.find_element(By.NAME, "reCaptcha")
 #print("2_Os frames são: {}".format(frames2))
 
-driver.switch_to.frame(frames[3])
+driver.switch_to.frame(frames[0])
 
-tp = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, "//span[@id='recaptcha-anchor']")))
+tp = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="recaptcha-anchor"]/div[1]')))
 #driver.find_element(By.ID, 'recaptcha-anchor').click
 #tp = driver.find_element(By.CLASS_NAME, "recaptcha-checkbox-border")
 time.sleep(10)
 tp.click
+print("clicou na caixa")
 
 driver.switch_to.default_content()
 
