@@ -56,6 +56,7 @@ print(len(frames))
 tpp = WebDriverWait(driver, 50).until(EC.presence_of_element_located((By.XPATH, '/html/body/div[1]/div/div[2]/div/div/div/div[2]/div[2]/form/div[2]/div/div/div/iframe')))
 print("achou o frame {}".format(tpp))
 #driver.switch_to.frame(frames[3])
+driver.switch_to.frame(tpp)
 
 
 sitekey = driver.find_element(By.XPATH, '/html/body/div[2]/div[3]/div[1]/div/div/span/div[1]').click()
