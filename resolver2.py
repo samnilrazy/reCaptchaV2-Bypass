@@ -38,6 +38,7 @@ except:
 
 frames = driver.find_elements(By.TAG_NAME, 'iframe')
 print("-----FRAMES ------\n{}\n---------------------------".format(frames))
+print(len(frames))
 driver.switch_to.frame(frames[3])
 
 
