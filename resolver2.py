@@ -15,7 +15,7 @@ driver = webdriver.Chrome(service=s)
 url = "https://iir.ai/OZkS"
 page = driver.get(url)
 
-time.sleep(22)
+time.sleep(5)
 
 
 
@@ -28,14 +28,14 @@ except:
     
 try:
     driver.find_element(By.XPATH, '//*[@id="link-view"]/button').click()
-    time.sleep(1)
+    time.sleep(20)
 except:
     print("Segundo botão não encontrado")
 
 
 
 
-time.sleep(10)
+
 frames = driver.find_elements(By.TAG_NAME, 'iframe')
 print("-----FRAMES ------\n{}\n---------------------------".format(frames))
 driver.switch_to.frame(frames[3])
