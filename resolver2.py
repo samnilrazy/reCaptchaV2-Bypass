@@ -81,6 +81,22 @@ except:
     while state == "N":
         count = count+1
         print("Imposivel localizar captcha box, tentando novamente...({})".format(count))
+        
+        #################################################################################
+        driver.switch_to.default_content()
+        time.sleep(2)
+        driver.save_screenshot('erro.png')
+        time.sleep(2)
+        driver.get("https://pasteboard.co/")
+        time.sleep(2)
+        driver.find_element(By.XPATH '/html/body/section[1]/div[1]/div[2]/div/label/input').send_keys("erro.png")
+        time.sleep(5)
+        driver.find_element(By.XPATH '/html/body/div[5]/div[6]/button[2]').click()
+        time.sleep(5)
+        t = driver.find_element(By.XPATH '/html/body/div[6]/div/div[4]/span/a').get_attribute("href")
+        t = str(t)
+        print("O link é: {}".format(t))
+        #################################################################################
         time.sleep(10)
         try:
             botao = WebDriverWait(driver, 50).until(EC.presence_of_element_located((By.XPATH, '//*[@id="rc-anchor-container"]/div[3]/div[1]/div/div')))
