@@ -91,7 +91,7 @@ except:
         time.sleep(2)
         dir = os.getcwd()
         dir = str(dir)
-        dir = "{}\erro.png".format(dir)
+        dir = "{}/erro.png".format(dir)
         driver.find_element(By.XPATH, '/html/body/section[1]/div[1]/div[2]/div/label/input').send_keys(dir)
         time.sleep(5)
         driver.find_element(By.XPATH, '/html/body/div[5]/div[6]/button[2]').click()
