@@ -28,7 +28,7 @@ except:
     
 try:
     driver.find_element(By.XPATH, '//*[@id="link-view"]/button').click()
-    time.sleep(50)
+    time.sleep(10)
 except:
     print("Segundo botão não encontrado")
 
@@ -42,14 +42,17 @@ if "Please check the captcha box to proceed to the destination page." in f:
     time.sleep(1)
 else:
     driver.find_element(By.XPATH, '//*[@id="link-view"]/button').click()
-    time.sleep(50)
+    time.sleep(5)
 
 
 
 frames = driver.find_elements(By.TAG_NAME, 'iframe')
 print("-----FRAMES ------\n{}\n---------------------------".format(frames))
 print(len(frames))
-driver.switch_to.frame(frames[3])
+
+WebDriverWait(driver, 50).until(EC.frame_to_be_available_and_switch_to_it((By.XPATH, '/html/body/div[1]/div/div[2]/div/div/div/div[2]/div[2]/form/div[2]/div/div/div/iframe')))
+print("achou o frame")
+#driver.switch_to.frame(frames[3])
 
 
 sitekey = driver.find_element(By.XPATH, '/html/body/div[2]/div[3]/div[1]/div/div/span/div[1]').click()
