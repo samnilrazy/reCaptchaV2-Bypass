@@ -72,13 +72,6 @@ time.sleep(2)
 driver.find_element(By.XPATH, '//*[@id="recaptcha-verify-button"]').click()
 time.sleep(3)
 
-driver.switch_to.default_content()
-time.sleep(3)
-
-frames = driver.find_elements(By.TAG_NAME, 'iframe')
-driver.switch_to.frame(frames[0])
-time.sleep(3)
-
 driver.find_element(By.ID, 'recaptcha-demo-submit').click()
 
 
