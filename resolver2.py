@@ -5,6 +5,7 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 import speech_recognition as sr 
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.action_chains import ActionChains
 import os
 from pydub import AudioSegment
 import urllib.request
@@ -60,8 +61,9 @@ driver.switch_to.frame(tpp)
 
 
 #sitekey = driver.find_element(By.XPATH, '/html/body/div[2]/div[3]/div[1]/div/div/span/div[1]').click()
-botao = WebDriverWait(driver, 50).until(EC.presence_of_element_located((By.CLASS_NAME, 'recaptcha-checkbox-border')))
-botao.click()
+botao = WebDriverWait(driver, 50).until(EC.presence_of_element_located((By.CLASS_NAME, 'recaptcha-checkbox goog-inline-block recaptcha-checkbox-unchecked rc-anchor-checkbox recaptcha-checkbox-expired')))
+ActionChains(driver).move_to_element(botao).click(botao).perform()
+#botao.click()
 
 driver.switch_to.default_content()
 time.sleep(3)
