@@ -15,7 +15,7 @@ driver = webdriver.Chrome(service=s)
 url = "https://iir.ai/OZkS"
 page = driver.get(url)
 
-time.sleep(20)
+time.sleep(22)
 
 
 
