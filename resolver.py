@@ -15,7 +15,7 @@ driver = webdriver.Chrome(service=s)
 url = "https://www.google.com/recaptcha/api2/demo"
 page = driver.get(url)
 
-time.sleep(10)
+time.sleep(3)
 
 frames = driver.find_elements(By.TAG_NAME, 'iframe')
 driver.switch_to.frame(frames[0])
@@ -24,13 +24,13 @@ driver.switch_to.frame(frames[0])
 sitekey = driver.find_element(By.XPATH, '//*[@id="recaptcha-anchor"]/div[1]').click()
 
 driver.switch_to.default_content()
-time.sleep(10)
+time.sleep(3)
 
 frames = driver.find_elements(By.TAG_NAME, 'iframe')
 driver.switch_to.frame(frames[2])
 
 sitekey = driver.find_element(By.XPATH, '//*[@id="recaptcha-audio-button"]').click()
-time.sleep(10)
+time.sleep(3)
 
 ##############################
 
@@ -73,11 +73,11 @@ driver.find_element(By.XPATH, '//*[@id="recaptcha-verify-button"]').click()
 time.sleep(3)
 
 driver.switch_to.default_content()
-time.sleep(10)
+time.sleep(3)
 
 frames = driver.find_elements(By.TAG_NAME, 'iframe')
 driver.switch_to.frame(frames[0])
-
+time.sleep(3)
 
 driver.find_element(By.ID, 'recaptcha-demo-submit').click()
 
