@@ -35,14 +35,21 @@ except:
 
     
 f = driver.find_element(By.XPATH, '//*[@id="td-outer-wrap"]/div/div[2]/div/div').text
+f = str(f)
 print("======================================\n{}\n======================================\n".format(f))
+
+if "Please check the captcha box to proceed to the destination page." in f:
+    time.sleep(1)
+else:
+    driver.find_element(By.XPATH, '//*[@id="link-view"]/button').click()
+    time.sleep(20)
 
 
 
 frames = driver.find_elements(By.TAG_NAME, 'iframe')
 print("-----FRAMES ------\n{}\n---------------------------".format(frames))
 print(len(frames))
-driver.switch_to.frame(frames[3])
+driver.switch_to.frame(frames[4])
 
 
 sitekey = driver.find_element(By.XPATH, '//*[@id="recaptcha-anchor"]').click()
