@@ -44,6 +44,8 @@ print("======================================\n{}\n=============================
 if "Please check the captcha box to proceed to the destination page." in f:
     time.sleep(1)
 else:
+    driver.find_element(By.XPATH, '/html/body/div/div/div/span').click()
+    time.sleep(3)
     driver.find_element(By.XPATH, '//*[@id="link-view"]/button').click()
     time.sleep(5)
 
