@@ -35,7 +35,7 @@ except:
 
 
 
-time.sleep(3)
+time.sleep(10)
 frames = driver.find_elements(By.TAG_NAME, 'iframe')
 print("-----FRAMES ------\n{}\n---------------------------".format(frames))
 driver.switch_to.frame(frames[3])
