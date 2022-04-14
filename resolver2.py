@@ -61,7 +61,7 @@ driver.switch_to.frame(tpp)
 
 
 #sitekey = driver.find_element(By.XPATH, '/html/body/div[2]/div[3]/div[1]/div/div/span/div[1]').click()
-botao = WebDriverWait(driver, 50).until(EC.presence_of_element_located((By.CLASS_NAME, 'recaptcha-checkbox goog-inline-block recaptcha-checkbox-unchecked rc-anchor-checkbox recaptcha-checkbox-expired')))
+botao = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, '//*[@id="recaptcha-anchor"]/div[1]')))
 ActionChains(driver).move_to_element(botao).click(botao).perform()
 #botao.click()
 
