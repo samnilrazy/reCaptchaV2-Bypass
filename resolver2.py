@@ -11,9 +11,18 @@ from pydub import AudioSegment
 import urllib.request
 import time
 print("Iniciando...")
+
+
+op = webdriver.ChromeOptions()
+op.add_argument("--headless")
+op.add_argument("--no-sandbox")
+op.add_argument("--disable-dev-sh-usage")
+
+
+
 s = Service('/app/.chromedriver/bin/chromedriver')
 
-driver = webdriver.Chrome(service=s)
+driver = webdriver.Chrome(service=s, chrome_options=op)
 driver.maximize_window()
 url = "https://iir.ai/OZkS"
 page = driver.get(url)
