@@ -49,7 +49,7 @@ else:
 frames = driver.find_elements(By.TAG_NAME, 'iframe')
 print("-----FRAMES ------\n{}\n---------------------------".format(frames))
 print(len(frames))
-driver.switch_to.frame(frames[4])
+driver.switch_to.frame(frames[5])
 
 
 sitekey = driver.find_element(By.XPATH, '//*[@id="recaptcha-anchor"]').click()
