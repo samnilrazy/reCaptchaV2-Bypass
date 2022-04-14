@@ -65,7 +65,7 @@ state = "N"
 count = 0
 try:
     #botao = driver.find_element(By.XPATH, '//*[@id="recaptcha-anchor"]')
-    botao = WebDriverWait(driver, 50).until(EC.presence_of_element_located((By.XPATH, '//*[@id="recaptcha-anchor"]')))
+    botao = WebDriverWait(driver, 50).until(EC.presence_of_element_located((By.XPATH, '//*[@id="rc-anchor-container"]/div[3]/div[1]/div/div')))
     state = "Ok"
 except:
     while state == "N":
@@ -73,7 +73,7 @@ except:
         print("Imposivel localizar captcha box, tentando novamente...({})\n\n".format(count))
         time.sleep(10)
         try:
-            botao = WebDriverWait(driver, 50).until(EC.presence_of_element_located((By.XPATH, '//*[@id="recaptcha-anchor"]')))
+            botao = WebDriverWait(driver, 50).until(EC.presence_of_element_located((By.XPATH, '//*[@id="rc-anchor-container"]/div[3]/div[1]/div/div')))
             state = "Ok"
         except:
             time.sleep(1)
