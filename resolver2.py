@@ -60,7 +60,7 @@ driver.switch_to.frame(tpp)
 
 
 #sitekey = driver.find_element(By.XPATH, '/html/body/div[2]/div[3]/div[1]/div/div/span/div[1]').click()
-botao = WebDriverWait(driver, 50).until(EC.presence_of_element_located((By.ID, 'recaptcha-anchor')))
+botao = WebDriverWait(driver, 50).until(EC.presence_of_element_located((By.XPATH, '//*[@id="rc-anchor-container"]/div[3]/div[1]/div/div')))
 botao.click()
 
 driver.switch_to.default_content()
