@@ -66,14 +66,17 @@ try:
     botao = driver.find_element(By.CLASS_NAME, 'recaptcha-checkbox-border')
 except:
     try:
+        botao = driver.find_element(By.CLASS_NAME, 'recaptcha-checkbox-border')
         print("recaptcha-checkbox não encontrado, tentando denovo...(1)")
         time.sleep(5)
     except:
         try:
+            botao = driver.find_element(By.CLASS_NAME, 'recaptcha-checkbox-border')
             print("recaptcha-checkbox não encontrado, tentando denovo...(2)")
             time.sleep(5)
         except:
             try:
+                botao = driver.find_element(By.CLASS_NAME, 'recaptcha-checkbox-border')
                 print("recaptcha-checkbox não encontrado, tentando denovo...(3)")
                 time.sleep(5)
             except:
