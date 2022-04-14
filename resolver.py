@@ -74,7 +74,7 @@ time.sleep(3)
 
 driver.switch_to.default_content()
 time.sleep(3)
-driver.find_element(By.ID, 'recaptcha-demo-submit').click()
+driver.find_element(By.XPATH, '//*[@id="recaptcha-demo-submit"]').click()
 
 
 
