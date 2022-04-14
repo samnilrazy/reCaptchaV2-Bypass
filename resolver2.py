@@ -59,7 +59,9 @@ print("achou o frame {}".format(tpp))
 driver.switch_to.frame(tpp)
 
 
-sitekey = driver.find_element(By.XPATH, '/html/body/div[2]/div[3]/div[1]/div/div/span/div[1]').click()
+#sitekey = driver.find_element(By.XPATH, '/html/body/div[2]/div[3]/div[1]/div/div/span/div[1]').click()
+botao = WebDriverWait(driver, 50).until(EC.presence_of_element_located((By.XPATH, '//*[@id="recaptcha-anchor"]/div[1]')))
+botao.click()
 
 driver.switch_to.default_content()
 time.sleep(3)
