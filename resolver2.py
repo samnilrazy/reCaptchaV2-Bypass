@@ -83,7 +83,7 @@ except:
         print("Imposivel localizar captcha box, tentando novamente...({})".format(count))
         
         #################################################################################
-        driver.switch_to.default_content()
+        #driver.switch_to.default_content()
         time.sleep(2)
         driver.save_screenshot('erro.png')
         time.sleep(2)
