@@ -21,7 +21,7 @@ time.sleep(3)
 
 try:
     driver.find_element(By.XPATH, '/html/body/div/div/div/span').click()
-    time.sleep(1)
+    time.sleep(3)
 except:
     print("Primeiro botão não encontrado")
     
@@ -40,13 +40,13 @@ frames = driver.find_elements(By.TAG_NAME, 'iframe')
 driver.switch_to.frame(frames[3])
 
 
-sitekey = driver.find_element(By.XPATH, '//*[@id="recaptcha-anchor"]/div[1]').click()
+sitekey = driver.find_element(By.XPATH, '//*[@id="recaptcha-anchor"]').click()
 
 driver.switch_to.default_content()
 time.sleep(3)
 
 frames = driver.find_elements(By.TAG_NAME, 'iframe')
-driver.switch_to.frame(frames[8])
+driver.switch_to.frame(frames[15])
 
 sitekey = driver.find_element(By.XPATH, '//*[@id="recaptcha-audio-button"]').click()
 time.sleep(3)
