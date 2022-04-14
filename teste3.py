@@ -4,6 +4,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 import urllib.request
 import speech_recognition as sr 
+from selenium.webdriver.support import expected_conditions as EC
 import time
 import os
 from pydub import AudioSegment
