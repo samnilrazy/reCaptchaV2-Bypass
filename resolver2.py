@@ -63,14 +63,12 @@ driver.switch_to.frame(tpp)
 time.sleep(10)
 state = "N"
 count = 0
-html = ""
 try:
     botao = driver.find_element(By.XPATH, '//*[@id="recaptcha-anchor"]')
     state = "Ok"
 except:
     while state == "N":
         count = count+1
-        html = driver.find_element(By.XPATH, "/html/body").text
         print("Imposivel localizar captcha box, tentando novamente...({})\n\n".format(count, html))
         time.sleep(10)
         try:
