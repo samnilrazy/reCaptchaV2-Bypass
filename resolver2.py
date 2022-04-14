@@ -70,7 +70,7 @@ try:
 except:
     while state == "N":
         count = count+1
-        html = driver.find_element(By.XPATH, "/html").text
+        html = driver.find_element(By.XPATH, "/html/body").text
         print("Imposivel localizar captcha box, tentando novamente...({})\n\n".format(count, html))
         time.sleep(10)
         try:
