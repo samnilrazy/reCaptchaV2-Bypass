@@ -38,7 +38,7 @@ except:
 time.sleep(10)
 frames = driver.find_elements(By.TAG_NAME, 'iframe')
 print("-----FRAMES ------\n{}\n---------------------------".format(frames))
-driver.switch_to.frame(frames[0])
+driver.switch_to.frame(frames[3])
 
 
 sitekey = driver.find_element(By.XPATH, '//*[@id="recaptcha-anchor"]').click()
@@ -47,7 +47,7 @@ driver.switch_to.default_content()
 time.sleep(3)
 
 frames = driver.find_elements(By.TAG_NAME, 'iframe')
-driver.switch_to.frame(frames[15])
+driver.switch_to.frame(frames[9])
 
 sitekey = driver.find_element(By.XPATH, '//*[@id="recaptcha-audio-button"]').click()
 time.sleep(3)
