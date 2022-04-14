@@ -33,6 +33,9 @@ except:
     print("Segundo botão não encontrado")
 
 
+    
+f = driver.find_element(By.XPATH, '//*[@id="td-outer-wrap"]/div/div[2]/div/div').text
+print("======================================\n{}\n======================================\n".format(f))
 
 
 
