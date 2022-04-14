@@ -11,7 +11,7 @@ print("Iniciando...")
 s = Service('/app/.chromedriver/bin/chromedriver')
 
 driver = webdriver.Chrome(service=s)
-
+maximize_window()
 url = "https://iir.ai/OZkS"
 page = driver.get(url)
 
