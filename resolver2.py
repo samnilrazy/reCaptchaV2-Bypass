@@ -17,8 +17,27 @@ page = driver.get(url)
 
 time.sleep(3)
 
+
+
+try:
+    driver.find_element(By.XPATH, '/html/body/div/div/div/span').click()
+    time.sleep(1)
+except:
+    print("Primeiro botão não encontrado")
+    
+    
+try:
+    driver.find_element(By.XPATH, '//*[@id="link-view"]/button').click()
+    time.sleep(1)
+except:
+    print("Segundo botão não encontrado")
+
+
+
+
+time.sleep(3)
 frames = driver.find_elements(By.TAG_NAME, 'iframe')
-driver.switch_to.frame(frames[0])
+driver.switch_to.frame(frames[3])
 
 
 sitekey = driver.find_element(By.XPATH, '//*[@id="recaptcha-anchor"]/div[1]').click()
@@ -27,7 +46,7 @@ driver.switch_to.default_content()
 time.sleep(3)
 
 frames = driver.find_elements(By.TAG_NAME, 'iframe')
-driver.switch_to.frame(frames[2])
+driver.switch_to.frame(frames[8])
 
 sitekey = driver.find_element(By.XPATH, '//*[@id="recaptcha-audio-button"]').click()
 time.sleep(3)
@@ -74,7 +93,7 @@ time.sleep(3)
 
 driver.switch_to.default_content()
 time.sleep(3)
-driver.find_element(By.XPATH, '//*[@id="recaptcha-demo-submit"]').click()
+driver.find_element(By.XPATH, '//*[@id="invisibleCaptchaShortlink"]').click()
 
 
 
