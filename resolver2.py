@@ -89,13 +89,14 @@ except:
         time.sleep(2)
         driver.get("https://pasteboard.co/")
         time.sleep(2)
-        driver.find_element(By.XPATH '/html/body/section[1]/div[1]/div[2]/div/label/input').send_keys("erro.png")
+        driver.find_element(By.XPATH, '/html/body/section[1]/div[1]/div[2]/div/label/input').send_keys("erro.png")
         time.sleep(5)
-        driver.find_element(By.XPATH '/html/body/div[5]/div[6]/button[2]').click()
+        driver.find_element(By.XPATH, '/html/body/div[5]/div[6]/button[2]').click()
         time.sleep(5)
-        t = driver.find_element(By.XPATH '/html/body/div[6]/div/div[4]/span/a').get_attribute("href")
+        t = driver.find_element(By.XPATH, '/html/body/div[6]/div/div[4]/span/a').get_attribute("href")
         t = str(t)
         print("O link é: {}".format(t))
+        driver.quit()
         #################################################################################
         time.sleep(10)
         try:
