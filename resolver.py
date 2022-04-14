@@ -65,6 +65,22 @@ with sr.AudioFile(filename) as source:
     text = r.recognize_google(audio_data)
     print("O Conteudo é: {}".format(text))
 ###################
+#audio-response
+time.sleep(2)
+driver.find_element(By.ID, 'audio-response').send_keys(text)
+time.sleep(2)
+driver.find_element(By.ID, '//*[@id="recaptcha-verify-button"]').click()
+time.sleep(3)
+
+driver.switch_to.default_content()
+time.sleep(10)
+
+frames = driver.find_elements(By.TAG_NAME, 'iframe')
+driver.switch_to.frame(frames[0])
+
+
+driver.find_element(By.ID, 'recaptcha-demo-submit').click()
+
 
 
 print("OK")
