@@ -1,1 +1,1 @@
-worker: python teste3.py
+worker: python resolver.py
