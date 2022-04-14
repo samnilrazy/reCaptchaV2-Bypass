@@ -3,6 +3,8 @@ from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 import os
+from pydub import AudioSegment
+import urllib.request
 import time
 print("Iniciando...")
 s = Service('/app/.chromedriver/bin/chromedriver')
@@ -28,6 +30,40 @@ driver.switch_to.frame(frames[2])
 
 sitekey = driver.find_element(By.XPATH, '//*[@id="recaptcha-audio-button"]').click()
 time.sleep(10)
+
+##############################
+
+src = driver.find_element(By.ID, "audio-source").get_attribute("src")
+print("O link é: {}".format(src))
+
+
+
+
+
+urllib.request.urlretrieve(src, "ex.mp3")
+time.sleep(1)
+filename = "audio.wav"
+r = sr.Recognizer()
+
+
+
+# files                                                                       
+src = "ex.mp3"
+dst = "audio.wav"
+
+# convert wav to mp3                                                            
+audSeg = AudioSegment.from_mp3(src)
+audSeg.export(dst, format="wav")
+time.sleep(1)
+
+
+with sr.AudioFile(filename) as source:
+    # listen for the data (load audio to memory)
+    audio_data = r.record(source)
+    # recognize (convert from speech to text)
+    text = r.recognize_google(audio_data)
+    print("O Conteudo é: {}".format(text))
+###################
 
 
 print("OK")
