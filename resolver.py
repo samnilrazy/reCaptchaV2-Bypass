@@ -69,7 +69,7 @@ with sr.AudioFile(filename) as source:
 time.sleep(2)
 driver.find_element(By.ID, 'audio-response').send_keys(text)
 time.sleep(2)
-driver.find_element(By.ID, '//*[@id="recaptcha-verify-button"]').click()
+driver.find_element(By.XPATH, '//*[@id="recaptcha-verify-button"]').click()
 time.sleep(3)
 
 driver.switch_to.default_content()
