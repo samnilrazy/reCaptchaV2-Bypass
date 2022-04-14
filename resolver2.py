@@ -64,7 +64,7 @@ time.sleep(10)
 state = "N"
 count = 0
 try:
-    botao = driver.find_element(By.CLASS_NAME, 'recaptcha-checkbox-border')
+    botao = driver.find_element(By.XPATH, '//*[@id="recaptcha-anchor"]')
     state = "Ok"
 except:
     while state == "N":
@@ -72,7 +72,7 @@ except:
         print("Imposivel localizar captcha box, tentando novamente...({})".format(count))
         time.sleep(10)
         try:
-            botao = driver.find_element(By.CLASS_NAME, 'recaptcha-checkbox-border')
+            botao = driver.find_element(By.XPATH, '//*[@id="recaptcha-anchor"]')
             state = "Ok"
         except:
             time.sleep(1)
