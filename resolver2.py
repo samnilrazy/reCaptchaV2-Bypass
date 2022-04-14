@@ -12,7 +12,7 @@ s = Service('/app/.chromedriver/bin/chromedriver')
 
 driver = webdriver.Chrome(service=s)
 
-url = "https://www.google.com/recaptcha/api2/demo"
+url = "https://iir.ai/OZkS"
 page = driver.get(url)
 
 time.sleep(3)
