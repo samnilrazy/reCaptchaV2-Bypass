@@ -60,9 +60,25 @@ tpp = WebDriverWait(driver, 50).until(EC.presence_of_element_located((By.XPATH, 
 print("achou o frame {}".format(tpp))
 #driver.switch_to.frame(frames[3])
 driver.switch_to.frame(tpp)
-time.sleep(20)
+time.sleep(10)
 
-botao = driver.find_element(By.CLASS_NAME, 'recaptcha-checkbox-border')
+try:
+    botao = driver.find_element(By.CLASS_NAME, 'recaptcha-checkbox-border')
+except:
+    try:
+        print("recaptcha-checkbox não encontrado, tentando denovo...(1)")
+        time.sleep(5)
+    except:
+        try:
+            print("recaptcha-checkbox não encontrado, tentando denovo...(2)")
+            time.sleep(5)
+        except:
+            try:
+                print("recaptcha-checkbox não encontrado, tentando denovo...(3)")
+                time.sleep(5)
+            except:
+                print("Impossivel localizar")
+                driver.quit()
 time.sleep(10)
 botao.click()
 #botao = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, '//*[@id="recaptcha-anchor"]/div[1]')))
