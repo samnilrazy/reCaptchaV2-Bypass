@@ -25,7 +25,6 @@ time.sleep(15)
 try:
     driver.find_element(By.XPATH, '/html/body/div/div/div/span').click()
     time.sleep(3)
-    driver.switch_to.default_content()
 except:
     print("Primeiro botão não encontrado")
     
@@ -33,7 +32,6 @@ except:
 try:
     driver.find_element(By.XPATH, '//*[@id="link-view"]/button').click()
     time.sleep(10)
-    driver.switch_to.default_content()
 except:
     print("Segundo botão não encontrado")
 
@@ -48,10 +46,8 @@ if "Please check the captcha box to proceed to the destination page." in f:
 else:
     driver.find_element(By.XPATH, '/html/body/div/div/div/span').click()
     time.sleep(3)
-    driver.switch_to.default_content()
     driver.find_element(By.XPATH, '//*[@id="link-view"]/button').click()
     time.sleep(5)
-    driver.switch_to.default_content()
 
 
 
