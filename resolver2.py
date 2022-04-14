@@ -15,7 +15,7 @@ driver.maximize_window()
 url = "https://iir.ai/OZkS"
 page = driver.get(url)
 
-time.sleep(5)
+time.sleep(15)
 
 
 
