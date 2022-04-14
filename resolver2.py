@@ -25,6 +25,7 @@ time.sleep(15)
 try:
     driver.find_element(By.XPATH, '/html/body/div/div/div/span').click()
     time.sleep(3)
+    driver.switch_to.default_content()
 except:
     print("Primeiro botão não encontrado")
     
@@ -32,6 +33,7 @@ except:
 try:
     driver.find_element(By.XPATH, '//*[@id="link-view"]/button').click()
     time.sleep(10)
+    driver.switch_to.default_content()
 except:
     print("Segundo botão não encontrado")
 
@@ -46,8 +48,10 @@ if "Please check the captcha box to proceed to the destination page." in f:
 else:
     driver.find_element(By.XPATH, '/html/body/div/div/div/span').click()
     time.sleep(3)
+    driver.switch_to.default_content()
     driver.find_element(By.XPATH, '//*[@id="link-view"]/button').click()
     time.sleep(5)
+    driver.switch_to.default_content()
 
 
 
@@ -67,10 +71,11 @@ try:
     #botao = driver.find_element(By.XPATH, '//*[@id="recaptcha-anchor"]')
     botao = WebDriverWait(driver, 50).until(EC.presence_of_element_located((By.XPATH, '//*[@id="rc-anchor-container"]/div[3]/div[1]/div/div')))
     state = "Ok"
+    #driver.switch_to.default_content()
 except:
     while state == "N":
         count = count+1
-        print("Imposivel localizar captcha box, tentando novamente...({})\n\n".format(count))
+        print("Imposivel localizar captcha box, tentando novamente...({})".format(count))
         time.sleep(10)
         try:
             botao = WebDriverWait(driver, 50).until(EC.presence_of_element_located((By.XPATH, '//*[@id="rc-anchor-container"]/div[3]/div[1]/div/div')))
@@ -80,7 +85,7 @@ except:
         
         
         
-time.sleep(10)
+time.sleep(30)
 botao.click()
 #botao = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, '//*[@id="recaptcha-anchor"]/div[1]')))
 #ActionChains(driver).move_to_element(botao).click(botao).perform()
