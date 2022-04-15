@@ -76,14 +76,13 @@ state = "N"
 count = 0
 try:
     er = driver.find_elements(By.TAG_NAME, "div")
-    er = str(er)
     e_cont = len(er)
     print("\n\n{}\n\n --> {}".format(er, e_cont))
 except:
     print("Impossivel localizar divs dentro do iframe")
 try:
     #botao = driver.find_element(By.XPATH, '//*[@id="recaptcha-anchor"]')
-    botao = WebDriverWait(driver, 50).until(EC.presence_of_element_located((By.XPATH, '/html/body/div[2]/div[3]/div[1]/div/div/span/div[1]')))
+    botao = WebDriverWait(driver, 50).until(EC.presence_of_element_located((By.XPATH, '//*[@id="recaptcha-anchor"]')))
     state = "Ok"
     #driver.switch_to.default_content()
 except:
@@ -92,7 +91,7 @@ except:
         print("Imposivel localizar captcha box, tentando novamente...({})".format(count))
         time.sleep(10)
         try:
-            botao = WebDriverWait(driver, 50).until(EC.presence_of_element_located((By.XPATH, '/html/body/div[2]/div[3]/div[1]/div/div/span/div[1]')))
+            botao = WebDriverWait(driver, 50).until(EC.presence_of_element_located((By.XPATH, '//*[@id="recaptcha-anchor"]')))
             state = "Ok"
         except:
             time.sleep(1)
