@@ -69,9 +69,12 @@ tpp = WebDriverWait(driver, 50).until(EC.presence_of_element_located((By.XPATH, 
 print("achou o frame {}".format(tpp))
 #driver.switch_to.frame(frames[3])
 driver.switch_to.frame(tpp)
-time.sleep(30)
+time.sleep(10)
 state = "N"
 count = 0
+er = driver.find_element(By.TAG_NAME, "div")
+er = str(er)
+print("\n\n{}\n\n".format(er))
 try:
     #botao = driver.find_element(By.XPATH, '//*[@id="recaptcha-anchor"]')
     botao = WebDriverWait(driver, 15).until(EC.presence_of_element_located((By.XPATH, '//*[@id="recaptcha-anchor"]/div[1]')))
@@ -81,26 +84,6 @@ except:
     while state == "N":
         count = count+1
         print("Imposivel localizar captcha box, tentando novamente...({})".format(count))
-        
-        #################################################################################
-        #driver.switch_to.default_content()
-        time.sleep(2)
-        driver.save_screenshot('erro.png')
-        time.sleep(2)
-        driver.get("https://pasteboard.co/")
-        time.sleep(2)
-        dir = os.getcwd()
-        dir = str(dir)
-        dir = "{}/erro.png".format(dir)
-        driver.find_element(By.XPATH, '/html/body/section[1]/div[1]/div[2]/div/label/input').send_keys(dir)
-        time.sleep(5)
-        driver.find_element(By.XPATH, '/html/body/div[5]/div[6]/button[2]').click()
-        time.sleep(5)
-        t = driver.find_element(By.XPATH, '/html/body/div[6]/div/div[4]/span/a').get_attribute("href")
-        t = str(t)
-        print("O link é: {}".format(t))
-        driver.quit()
-        #################################################################################
         time.sleep(10)
         try:
             botao = WebDriverWait(driver, 50).until(EC.presence_of_element_located((By.XPATH, '//*[@id="recaptcha-anchor"]/div[1]')))
