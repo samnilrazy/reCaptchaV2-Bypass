@@ -75,10 +75,10 @@ try:
                 time.sleep(5)
             except:
                 print("Impossivel iniciar URL: Script closed!")
-                driver.quit()
+                exit()
 except:
     print("Impossivel obter conteudo da pagina!")
-    driver.quit()
+    exit()
 
 
 
