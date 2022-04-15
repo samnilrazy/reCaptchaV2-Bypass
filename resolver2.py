@@ -57,6 +57,8 @@ try:
         time.sleep(1)
     else:
         try:
+            page = driver.get(url)
+            time.sleep(3)
             driver.find_element(By.XPATH, '/html/body/div/div/div/span').click()
             time.sleep(3)
             driver.find_element(By.XPATH, '//*[@id="link-view"]/button').click()
@@ -124,12 +126,18 @@ print(len(frames))
 #xpaths -->  
 try:
    driver.find_elements(By.TAG_NAME, "/html/body/div/div[1]/div/div[3]/span").click()
+except:
+    time.sleep(1)
     
 try:
    driver.find_elements(By.TAG_NAME, "/html/body/div/div[2]/div/div[3]/span").click()
+except:
+    time.sleep(1)
 
 try:
    driver.find_elements(By.TAG_NAME, '//*[@id="orquidea-slideup"]/div/span').click()
+except:
+    time.sleep(1)
 
 #WebDriverWait(driver, 50).until(EC.frame_to_be_available_and_switch_to_it((By.XPATH, '/html/body/div[1]/div/div[2]/div/div/div/div[2]/div[2]/form/div[2]/div/div/div/iframe')))
 tpp = WebDriverWait(driver, 50).until(EC.presence_of_element_located((By.XPATH, '/html/body/div[1]/div/div[2]/div/div/div/div[2]/div[2]/form/div[2]/div/div/div/iframe'))).get_attribute("name")
