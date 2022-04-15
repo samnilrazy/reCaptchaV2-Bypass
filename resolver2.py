@@ -22,7 +22,7 @@ op.add_argument("--disable-dev-sh-usage")
 
 s = Service('/app/.chromedriver/bin/chromedriver')
 
-driver = webdriver.Chrome(service=s, chrome_options=op)
+driver = webdriver.Chrome(service=s, options=op)
 driver.maximize_window()
 url = "https://iir.ai/OZkS"
 page = driver.get(url)
