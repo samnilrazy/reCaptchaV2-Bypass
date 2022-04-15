@@ -125,21 +125,27 @@ print(len(frames))
 
 #xpaths -->  
 try:
-    driver.find_elements(By.TAG_NAME, "/html/body/div/div[1]/div/div[3]/span").click()
+    a = driver.find_elements(By.TAG_NAME, "/html/body/div/div[1]/div/div[3]/span")
+    time.sleep(2)
+    a.click()
     time.sleep(2)
 except:
     print("1º Anuncio não encontrado")
     time.sleep(2)
     
 try:
-    driver.find_elements(By.TAG_NAME, "/html/body/div/div[1]/div/div[3]/span").click()
+    a = driver.find_elements(By.TAG_NAME, "/html/body/div/div[1]/div/div[3]/span")
+    time.sleep(2)
+    a.click()
     time.sleep(2)
 except:
     print("2º Anuncio não encontrado")
     time.sleep(2)
 
 try:
-    driver.find_elements(By.TAG_NAME, '//*[@id="orquidea-slideup"]/div/span').click()
+    a = driver.find_elements(By.TAG_NAME, '//*[@id="orquidea-slideup"]/div/span')
+    time.sleep(2)
+    a.click()
     time.sleep(2)
 except:
      print("Close não encontrado")
