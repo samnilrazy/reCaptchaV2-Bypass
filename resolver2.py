@@ -97,7 +97,7 @@ except Exception as e:
         time.sleep(10)
         try:
             #botao = WebDriverWait(driver, 50).until(EC.presence_of_element_located((By.XPATH, '//*[@id="recaptcha-anchor"]')))
-            botao = driver.find_element(By.XPATH, '//*[@id="recaptcha-anchor"]'))
+            botao = driver.find_element(By.XPATH, '//*[@id="recaptcha-anchor"]')
             state = "Ok"
         except:
             time.sleep(1)
