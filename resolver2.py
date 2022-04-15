@@ -90,6 +90,7 @@ try:
                 t = str(t)
                 print("Impossivel iniciar URL: Script closed! {}".format(t))
                 time.sleep(3)
+                os.remove('erro.png')
                 exit()
 except:
     time.sleep(2)
@@ -106,8 +107,9 @@ except:
     time.sleep(5)
     t = driver.find_element(By.XPATH, '/html/body/div[6]/div/div[4]/span/a').get_attribute("href")
     t = str(t)
-    print("Impossivel obter conteudo da pagina Script closed!! {}".format(t))
+    print("Impossivel obter conteudo da pagina: Script closed!! {}".format(t))
     time.sleep(5)
+     os.remove('erro.png')
     exit()
 
 
@@ -176,6 +178,8 @@ except:
     t = driver.find_element(By.XPATH, '/html/body/div[6]/div/div[4]/span/a').get_attribute("href")
     t = str(t)
     print("Erro ao clicar na porra do botão, confere o print: {}".format(t))
+    time.sleep(3)
+    os.remove('erro.png')
     exit()
     #################################################################################
 #botao = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, '//*[@id="recaptcha-anchor"]/div[1]')))
