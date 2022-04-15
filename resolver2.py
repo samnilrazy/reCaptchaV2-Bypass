@@ -47,18 +47,36 @@ except:
     print("Segundo botão não encontrado")
 
 
-    
-f = driver.find_element(By.XPATH, '//*[@id="td-outer-wrap"]/div/div[2]/div/div').text
-f = str(f)
-print("======================================\n{}\n======================================\n".format(f))
+try:
+    f = driver.find_element(By.XPATH, '//*[@id="td-outer-wrap"]/div/div[2]/div/div').text
+    f = str(f)
+    print("======================================\n{}\n======================================\n".format(f))
+except:
+    print("Impossivel obter conteudo da pagina!")
 
 if "Please check the captcha box to proceed to the destination page." in f:
     time.sleep(1)
 else:
-    driver.find_element(By.XPATH, '/html/body/div/div/div/span').click()
-    time.sleep(3)
-    driver.find_element(By.XPATH, '//*[@id="link-view"]/button').click()
-    time.sleep(5)
+    try:
+        driver.find_element(By.XPATH, '/html/body/div/div/div/span').click()
+        time.sleep(3)
+        driver.find_element(By.XPATH, '//*[@id="link-view"]/button').click()
+        time.sleep(5)
+    except:
+        try:
+            url = "https://iir.ai/OZkS"
+            driver.set_page_load_timeout(30)
+            page = driver.get(url)
+
+            time.sleep(15)
+            
+            driver.find_element(By.XPATH, '/html/body/div/div/div/span').click()
+            time.sleep(3)
+            driver.find_element(By.XPATH, '//*[@id="link-view"]/button').click()
+            time.sleep(5)
+        except:
+            print("Impossivel iniciar URL: Script closed!")
+            driver.quit()
 
 
 
