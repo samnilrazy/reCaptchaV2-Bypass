@@ -11,7 +11,6 @@ import traceback
 from pydub import AudioSegment
 import urllib.request
 import time
-os.system("cls")
 print("Iniciando...")
 
 
@@ -75,13 +74,39 @@ try:
                 driver.find_element(By.XPATH, '//*[@id="link-view"]/button').click()
                 time.sleep(5)
             except:
-                os.system("cls")
-                print("Impossivel iniciar URL: Script closed!")
+                time.sleep(2)
+                driver.save_screenshot('erro.png')
+                time.sleep(2)
+                driver.get("https://pasteboard.co/")
+                time.sleep(2)
+                dir = os.getcwd()
+                dir = str(dir)
+                dir = "{}/erro.png".format(dir)
+                driver.find_element(By.XPATH, '/html/body/section[1]/div[1]/div[2]/div/label/input').send_keys(dir)
+                time.sleep(5)
+                driver.find_element(By.XPATH, '/html/body/div[5]/div[6]/button[2]').click()
+                time.sleep(5)
+                t = driver.find_element(By.XPATH, '/html/body/div[6]/div/div[4]/span/a').get_attribute("href")
+                t = str(t)
+                print("Impossivel iniciar URL: Script closed! {}".format(t))
                 time.sleep(3)
                 exit()
 except:
-    os.system("cls")
-    print("Impossivel obter conteudo da pagina Script closed!!")
+    time.sleep(2)
+    driver.save_screenshot('erro.png')
+    time.sleep(2)
+    driver.get("https://pasteboard.co/")
+    time.sleep(2)
+    dir = os.getcwd()
+    dir = str(dir)
+    dir = "{}/erro.png".format(dir)
+    driver.find_element(By.XPATH, '/html/body/section[1]/div[1]/div[2]/div/label/input').send_keys(dir)
+    time.sleep(5)
+    driver.find_element(By.XPATH, '/html/body/div[5]/div[6]/button[2]').click()
+    time.sleep(5)
+    t = driver.find_element(By.XPATH, '/html/body/div[6]/div/div[4]/span/a').get_attribute("href")
+    t = str(t)
+    print("Impossivel obter conteudo da pagina Script closed!! {}".format(t))
     time.sleep(5)
     exit()
 
@@ -130,7 +155,29 @@ except Exception as e:
         
         
 time.sleep(30)
-botao.click()
+
+try:
+    botao.click()
+except:
+    #################################################################################
+    #driver.switch_to.default_content()
+    time.sleep(2)
+    driver.save_screenshot('erro.png')
+    time.sleep(2)
+    driver.get("https://pasteboard.co/")
+    time.sleep(2)
+    dir = os.getcwd()
+    dir = str(dir)
+    dir = "{}/erro.png".format(dir)
+    driver.find_element(By.XPATH, '/html/body/section[1]/div[1]/div[2]/div/label/input').send_keys(dir)
+    time.sleep(5)
+    driver.find_element(By.XPATH, '/html/body/div[5]/div[6]/button[2]').click()
+    time.sleep(5)
+    t = driver.find_element(By.XPATH, '/html/body/div[6]/div/div[4]/span/a').get_attribute("href")
+    t = str(t)
+    print("Erro ao clicar na porra do botão, confere o print: {}".format(t))
+    exit()
+    #################################################################################
 #botao = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, '//*[@id="recaptcha-anchor"]/div[1]')))
 #ActionChains(driver).move_to_element(botao).click(botao).perform()
 #botao.click()
