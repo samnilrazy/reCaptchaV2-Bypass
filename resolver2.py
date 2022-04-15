@@ -109,7 +109,7 @@ except:
     t = str(t)
     print("Impossivel obter conteudo da pagina: Script closed!! {}".format(t))
     time.sleep(5)
-     os.remove('erro.png')
+    os.remove('erro.png')
     exit()
 
 
@@ -127,32 +127,44 @@ print("achou o frame {}".format(tpp))
 driver.switch_to.frame(tpp)
 time.sleep(10)
 state = "N"
-count = 0
 try:
     er = driver.find_elements(By.TAG_NAME, "div")
     e_cont = len(er)
     print("\n\n{}\n\n --> {}".format(er, e_cont))
 except:
     print("Impossivel localizar divs dentro do iframe")
-try:
+    
+    
+    
+try: # tentar achar no captcha box
     #botao = driver.find_element(By.XPATH, '//*[@id="recaptcha-anchor"]')
     #botao = WebDriverWait(driver, 50).until(EC.presence_of_element_located((By.XPATH, '//*[@id="recaptcha-anchor"]')))
     #botao = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.ID, 'recaptcha-anchor')))
     botao = driver.find_element(By.XPATH, '//*[@id="recaptcha-anchor"]/div[1]')
     state = "Ok"
     #driver.switch_to.default_content()
-except Exception as e:
-    while state == "N":
-        count = count+1
-        print("Imposivel localizar captcha box, tentando novamente...({})".format(count))
-        traceback.print_exc()
-        time.sleep(10)
-        try:
-            #botao = WebDriverWait(driver, 50).until(EC.presence_of_element_located((By.XPATH, '//*[@id="recaptcha-anchor"]')))
-            botao = driver.find_element(By.XPATH, '//*[@id="recaptcha-anchor"]/div[1]]')
-            state = "Ok"
-        except:
-            time.sleep(1)
+except:
+    #################################################################################
+    #driver.switch_to.default_content()
+    time.sleep(2)
+    driver.save_screenshot('erro.png')
+    time.sleep(2)
+    driver.get("https://pasteboard.co/")
+    time.sleep(2)
+    dir = os.getcwd()
+    dir = str(dir)
+    dir = "{}/erro.png".format(dir)
+    driver.find_element(By.XPATH, '/html/body/section[1]/div[1]/div[2]/div/label/input').send_keys(dir)
+    time.sleep(5)
+    driver.find_element(By.XPATH, '/html/body/div[5]/div[6]/button[2]').click()
+    time.sleep(5)
+    t = driver.find_element(By.XPATH, '/html/body/div[6]/div/div[4]/span/a').get_attribute("href")
+    t = str(t)
+    #################################################################################
+    print("Imposivel localizar captcha box. Script finalizado: {}".format(t))
+    time.sleep(3)
+    os.remove('erro.png')
+    exit()
         
         
         
