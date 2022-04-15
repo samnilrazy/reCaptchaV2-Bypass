@@ -83,7 +83,7 @@ except:
 try:
     #botao = driver.find_element(By.XPATH, '//*[@id="recaptcha-anchor"]')
     #botao = WebDriverWait(driver, 50).until(EC.presence_of_element_located((By.XPATH, '//*[@id="recaptcha-anchor"]')))
-    botao = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, "//div[@class='recaptcha-checkbox-border']")))
+    botao = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="recaptcha-anchor"]')))
     state = "Ok"
     #driver.switch_to.default_content()
 except:
@@ -93,7 +93,7 @@ except:
         time.sleep(10)
         try:
             #botao = WebDriverWait(driver, 50).until(EC.presence_of_element_located((By.XPATH, '//*[@id="recaptcha-anchor"]')))
-            botao = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, "//div[@class='recaptcha-checkbox-border']")))
+            botao = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="recaptcha-anchor"]')))
             state = "Ok"
         except:
             time.sleep(1)
