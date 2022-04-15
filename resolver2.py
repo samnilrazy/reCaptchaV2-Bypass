@@ -78,6 +78,7 @@ try:
                 driver.quit()
 except:
     print("Impossivel obter conteudo da pagina!")
+    driver.quit()
 
 
 
