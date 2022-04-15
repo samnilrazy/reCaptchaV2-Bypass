@@ -11,6 +11,7 @@ import traceback
 from pydub import AudioSegment
 import urllib.request
 import time
+os.system("cls")
 print("Iniciando...")
 
 
@@ -74,10 +75,14 @@ try:
                 driver.find_element(By.XPATH, '//*[@id="link-view"]/button').click()
                 time.sleep(5)
             except:
+                os.system("cls")
                 print("Impossivel iniciar URL: Script closed!")
+                time.sleep(3)
                 exit()
 except:
-    print("Impossivel obter conteudo da pagina!")
+    os.system("cls")
+    print("Impossivel obter conteudo da pagina Script closed!!")
+    time.sleep(5)
     exit()
 
 
