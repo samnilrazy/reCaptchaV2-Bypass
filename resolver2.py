@@ -125,19 +125,25 @@ print(len(frames))
 
 #xpaths -->  
 try:
-   driver.find_elements(By.TAG_NAME, "/html/body/div/div[1]/div/div[3]/span").click()
+    driver.find_elements(By.TAG_NAME, "/html/body/div/div[1]/div/div[3]/span").click()
+    time.sleep(2)
 except:
-    time.sleep(1)
+    print("1º Anuncio não encontrado")
+    time.sleep(2)
     
 try:
-   driver.find_elements(By.TAG_NAME, "/html/body/div/div[2]/div/div[3]/span").click()
+    driver.find_elements(By.TAG_NAME, "/html/body/div/div[1]/div/div[3]/span").click()
+    time.sleep(2)
 except:
-    time.sleep(1)
+    print("2º Anuncio não encontrado")
+    time.sleep(2)
 
 try:
-   driver.find_elements(By.TAG_NAME, '//*[@id="orquidea-slideup"]/div/span').click()
+    driver.find_elements(By.TAG_NAME, '//*[@id="orquidea-slideup"]/div/span').click()
+    time.sleep(2)
 except:
-    time.sleep(1)
+     print("Close não encontrado")
+     time.sleep(2)
 
 #WebDriverWait(driver, 50).until(EC.frame_to_be_available_and_switch_to_it((By.XPATH, '/html/body/div[1]/div/div[2]/div/div/div/div[2]/div[2]/form/div[2]/div/div/div/iframe')))
 tpp = WebDriverWait(driver, 50).until(EC.presence_of_element_located((By.XPATH, '/html/body/div[1]/div/div[2]/div/div/div/div[2]/div[2]/form/div[2]/div/div/div/iframe'))).get_attribute("name")
