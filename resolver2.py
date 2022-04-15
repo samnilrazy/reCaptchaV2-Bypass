@@ -68,7 +68,7 @@ print(len(frames))
 
 #WebDriverWait(driver, 50).until(EC.frame_to_be_available_and_switch_to_it((By.XPATH, '/html/body/div[1]/div/div[2]/div/div/div/div[2]/div[2]/form/div[2]/div/div/div/iframe')))
 #tpp = WebDriverWait(driver, 50).until(EC.presence_of_element_located((By.XPATH, '/html/body/div[1]/div/div[2]/div/div/div/div[2]/div[2]/form/div[2]/div/div/div/iframe')))
-tpp = WebDriverWait(driver, 20).until(EC.frame_to_be_available_and_switch_to_it((By.XPATH,"//iframe[starts-with(@src, 'https://www.google.com/recaptcha/api2/anchor?ar=1&k=6LcNwNYdAAAAAKXZrWouTBrt8oi1j1wT04ULQSli&co=aHR0cHM6Ly9paXIuYWk6NDQz&hl=pt-BR&v=6pQzWaE1NP-gB4FrqRViKjM-&size=normal&cb=4cyt6lqxcgcj')]")))
+tpp = WebDriverWait(driver, 20).until(EC.frame_to_be_available_and_switch_to_it((By.XPATH,"//iframe[starts-with(@src, 'https://www.google.com/recaptcha/api2/anchor')]")))
 print("achou o frame {}".format(tpp))
 #driver.switch_to.frame(frames[3])
 #driver.switch_to.frame(tpp)
@@ -84,7 +84,7 @@ except:
 try:
     #botao = driver.find_element(By.XPATH, '//*[@id="recaptcha-anchor"]')
     #botao = WebDriverWait(driver, 50).until(EC.presence_of_element_located((By.XPATH, '//*[@id="recaptcha-anchor"]')))
-    botao = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="recaptcha-anchor"]')))
+    botao = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, "//span[starts-with(@id, 'recaptcha-anchor')]")))
     state = "Ok"
     #driver.switch_to.default_content()
 except Exception as e:
@@ -95,7 +95,7 @@ except Exception as e:
         time.sleep(10)
         try:
             #botao = WebDriverWait(driver, 50).until(EC.presence_of_element_located((By.XPATH, '//*[@id="recaptcha-anchor"]')))
-            botao = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="recaptcha-anchor"]')))
+            botao = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, "//span[starts-with(@id, 'recaptcha-anchor')]")))
             state = "Ok"
         except:
             time.sleep(1)
