@@ -25,6 +25,7 @@ s = Service('/app/.chromedriver/bin/chromedriver')
 driver = webdriver.Chrome(service=s, options=op)
 driver.maximize_window()
 url = "https://iir.ai/OZkS"
+driver.set_page_load_timeout(30)
 page = driver.get(url)
 
 time.sleep(15)
