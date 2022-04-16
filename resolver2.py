@@ -125,7 +125,7 @@ print(len(frames))
 
 #xpaths -->  
 try:
-    a = driver.find_elements(By.TAG_NAME, "/html/body/div/div[1]/div/div[3]/span")
+    a = driver.find_elements(By.XPATH, "/html/body/div/div[1]/div/div[3]/span")
     time.sleep(2)
     a.click()
     time.sleep(2)
@@ -134,7 +134,7 @@ except:
     time.sleep(2)
     
 try:
-    a = driver.find_elements(By.TAG_NAME, "/html/body/div/div[1]/div/div[3]/span")
+    a = driver.find_elements(By.XPATH, "/html/body/div/div[1]/div/div[3]/span")
     time.sleep(2)
     a.click()
     time.sleep(2)
@@ -143,7 +143,7 @@ except:
     time.sleep(2)
 
 try:
-    a = driver.find_elements(By.TAG_NAME, '//*[@id="orquidea-slideup"]/div/span')
+    a = driver.find_elements(By.XPATH, '//*[@id="orquidea-slideup"]/div/span')
     time.sleep(2)
     a.click()
     time.sleep(2)
@@ -156,6 +156,7 @@ tpp = WebDriverWait(driver, 50).until(EC.presence_of_element_located((By.XPATH, 
 #tpp = WebDriverWait(driver, 20).until(EC.frame_to_be_available_and_switch_to_it((By.XPATH,'//*[@id="captchaShortlink"]/div/div/iframe')))
 #print("achou o frame {}".format(tpp))
 #driver.switch_to.frame(frames[3])
+#webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.id("iframeLogin")));
 print("achou o frame {}".format(tpp))
 driver.switch_to.frame(tpp)
 time.sleep(10)
