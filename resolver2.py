@@ -123,7 +123,7 @@ print(len(frames))
 
 ################ TIRANDO ANUNCIOS DA TELA
 
-#logs -->  não funcionou: xpath, full xpath,
+#logs -->  não funcionou: 
 try:
     a = driver.find_element(By.XPATH, '/html/body/div/div/div/div[3]/span')
     time.sleep(2)
@@ -152,13 +152,13 @@ except:
      time.sleep(2)
 
 #WebDriverWait(driver, 50).until(EC.frame_to_be_available_and_switch_to_it((By.XPATH, '/html/body/div[1]/div/div[2]/div/div/div/div[2]/div[2]/form/div[2]/div/div/div/iframe')))
-tpp = WebDriverWait(driver, 50).until(EC.presence_of_element_located((By.XPATH, '/html/body/div[1]/div/div[2]/div/div/div/div[2]/div[2]/form/div[2]/div/div/div/iframe'))).get_attribute("name")
-#tpp = WebDriverWait(driver, 20).until(EC.frame_to_be_available_and_switch_to_it((By.XPATH,'//*[@id="captchaShortlink"]/div/div/iframe')))
+#tpp = WebDriverWait(driver, 50).until(EC.presence_of_element_located((By.XPATH, '/html/body/div[1]/div/div[2]/div/div/div/div[2]/div[2]/form/div[2]/div/div/div/iframe'))).get_attribute("name")
+tpp = WebDriverWait(driver, 20).until(EC.frame_to_be_available_and_switch_to_it((By.XPATH,'//*[@id="captchaShortlink"]/div/div/iframe')))
 #print("achou o frame {}".format(tpp))
 #driver.switch_to.frame(frames[3])
 #webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.id("iframeLogin")));
-print("achou o frame {}".format(tpp))
-driver.switch_to.frame(tpp)
+#print("achou o frame {}".format(tpp))
+#driver.switch_to.frame(tpp)
 time.sleep(10)
 state = "N"
 try:
@@ -173,7 +173,7 @@ except:
 try: # tentar achar no captcha box
     #botao = driver.find_element(By.XPATH, '//*[@id="recaptcha-anchor"]')
     #botao = WebDriverWait(driver, 50).until(EC.presence_of_element_located((By.XPATH, '//*[@id="recaptcha-anchor"]')))
-    botao = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="recaptcha-anchor"]/div[1]')))
+    botao = WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="recaptcha-anchor"]/div[1]')))
     #botao = driver.find_element(By.XPATH, '//*[@id="recaptcha-anchor"]/div[1]')
     state = "Ok"
     #driver.switch_to.default_content()
