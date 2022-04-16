@@ -22,7 +22,7 @@ op.add_argument("--disable-dev-sh-usage")
 
 
 s = Service('/app/.chromedriver/bin/chromedriver')
-frx = Service('/app/vendor/firefox/firefox')
+frx = Service('/app/vendor/geckodriver/geckodriver')
 
 #driver = webdriver.Chrome(service=s, options=op)
 driver = webdriver.Firefox(service=frx)
