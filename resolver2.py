@@ -22,10 +22,8 @@ op.add_argument("--disable-dev-sh-usage")
 
 
 s = Service('/app/.chromedriver/bin/chromedriver')
-frx = Service('/app/vendor/geckodriver/geckodriver')
 
-#driver = webdriver.Chrome(service=s, options=op)
-driver = webdriver.Firefox(service=frx)
+driver = webdriver.Chrome(service=s, options=op)
 driver.maximize_window()
 url = "https://iir.ai/OZkS"
 driver.set_page_load_timeout(30)
