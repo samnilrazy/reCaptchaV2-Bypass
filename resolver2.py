@@ -178,7 +178,7 @@ try: # tentar achar no captcha box
     #botao = WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.CSS_SELECTOR, '#captchaShortlink > div > div > iframe')))
     #botao = WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.ID, 'recaptcha-anchor')))
     botao = driver.find_element(By.XPATH, value='//*[@id="captchaShortlink"]/div/div/iframe').click()
-    state = "Ok"
+    state = "Okk"
     #driver.switch_to.default_content()
 except:
     #################################################################################
