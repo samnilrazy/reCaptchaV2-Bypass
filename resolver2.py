@@ -123,9 +123,9 @@ print(len(frames))
 
 ################ TIRANDO ANUNCIOS DA TELA
 
-#logs -->  não funcionou: xpath, 
+#logs -->  não funcionou: xpath, full xpath,
 try:
-    a = driver.find_elements(By.XPATH, '/html/body/div/div/div/div[3]/span')
+    a = driver.find_element(By.XPATH, '/html/body/div/div/div/div[3]/span')
     time.sleep(2)
     a.click()
     time.sleep(2)
@@ -134,7 +134,7 @@ except:
     time.sleep(2)
     
 try:
-    a = driver.find_elements(By.XPATH, '/html/body/div/div/div/div[3]/span')
+    a = driver.find_element(By.XPATH, '/html/body/div/div/div/div[3]/span')
     time.sleep(2)
     a.click()
     time.sleep(2)
@@ -143,7 +143,7 @@ except:
     time.sleep(2)
 
 try:
-    a = driver.find_elements(By.XPATH, '/html/body/div[1]/div/div[2]/div/div/div/div[4]/div/span')
+    a = driver.find_element(By.XPATH, '/html/body/div[1]/div/div[2]/div/div/div/div[4]/div/span')
     time.sleep(2)
     a.click()
     time.sleep(2)
