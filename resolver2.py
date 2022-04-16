@@ -15,7 +15,7 @@ print("Iniciando...")
 
 
 op = webdriver.ChromeOptions()
-op.add_argument("--headless")
+#op.add_argument("--headless")
 op.add_argument("--no-sandbox")
 op.add_argument("--disable-dev-sh-usage")
 
@@ -176,7 +176,7 @@ try: # tentar achar no captcha box
     #botao = WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="recaptcha-anchor"]/div[1]')))
     #botao = driver.find_element(By.XPATH, '//*[@id="recaptcha-anchor"]/div[1]')
     #botao = WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.CSS_SELECTOR, '#captchaShortlink > div > div > iframe')))
-    botao = WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.CLASS_NAME, 'recaptcha-checkbox-border')))
+    botao = WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.ID, 'recaptcha-anchor')))
     state = "Ok"
     #driver.switch_to.default_content()
 except:
