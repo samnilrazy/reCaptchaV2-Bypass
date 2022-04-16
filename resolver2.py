@@ -173,8 +173,8 @@ except:
 try: # tentar achar no captcha box
     #botao = driver.find_element(By.XPATH, '//*[@id="recaptcha-anchor"]')
     #botao = WebDriverWait(driver, 50).until(EC.presence_of_element_located((By.XPATH, '//*[@id="recaptcha-anchor"]')))
-    #botao = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.ID, 'recaptcha-anchor')))
-    botao = driver.find_element(By.XPATH, '//*[@id="recaptcha-anchor"]/div[1]')
+    botao = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="recaptcha-anchor"]/div[1]')))
+    #botao = driver.find_element(By.XPATH, '//*[@id="recaptcha-anchor"]/div[1]')
     state = "Ok"
     #driver.switch_to.default_content()
 except:
