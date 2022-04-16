@@ -29,7 +29,7 @@ url = "https://iir.ai/OZkS"
 driver.set_page_load_timeout(30)
 page = driver.get(url)
 
-time.sleep(15)
+time.sleep(2)
 
 
 
@@ -42,7 +42,7 @@ except:
     
 try:
     driver.find_element(By.XPATH, '//*[@id="link-view"]/button').click()
-    time.sleep(10)
+    time.sleep(2)
 except:
     print("Segundo botão não encontrado")
 
@@ -69,7 +69,7 @@ try:
                 driver.set_page_load_timeout(30)
                 page = driver.get(url)
 
-                time.sleep(15)
+                time.sleep(2)
 
                 driver.find_element(By.XPATH, '/html/body/div/div/div/span').click()
                 time.sleep(3)
