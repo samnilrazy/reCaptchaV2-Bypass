@@ -12,8 +12,6 @@ from pydub import AudioSegment
 import urllib.request
 import time
 print("Iniciando...")
-
-
 op = webdriver.ChromeOptions()
 #op.add_argument("--headless")
 op.add_argument("--no-sandbox")
@@ -25,9 +23,10 @@ s = Service('/app/.chromedriver/bin/chromedriver')
 
 driver = webdriver.Chrome(service=s, options=op)
 driver.maximize_window()
-url = "https://iir.ai/OZkS"
+url = "https://iir.ai/0I3CG"
 driver.set_page_load_timeout(30)
 page = driver.get(url)
+driver.switch_to.default_content()
 
 time.sleep(2)
 
@@ -65,7 +64,6 @@ try:
             time.sleep(5)
         except:
             try:
-                url = "https://iir.ai/OZkS"
                 driver.set_page_load_timeout(30)
                 page = driver.get(url)
 
@@ -150,7 +148,7 @@ try:
 except:
      print("Close não encontrado")
      time.sleep(2)
-
+driver.switch_to.default_content()
 #WebDriverWait(driver, 50).until(EC.frame_to_be_available_and_switch_to_it((By.XPATH, '/html/body/div[1]/div/div[2]/div/div/div/div[2]/div[2]/form/div[2]/div/div/div/iframe')))
 #tpp = WebDriverWait(driver, 50).until(EC.presence_of_element_located((By.XPATH, '/html/body/div[1]/div/div[2]/div/div/div/div[2]/div[2]/form/div[2]/div/div/div/iframe'))).get_attribute("name")
 tpp = WebDriverWait(driver, 20).until(EC.frame_to_be_available_and_switch_to_it((By.XPATH,'//*[@id="captchaShortlink"]/div/div/iframe')))
@@ -177,9 +175,11 @@ try: # tentar achar no captcha box
     #botao = driver.find_element(By.XPATH, '//*[@id="recaptcha-anchor"]/div[1]')
     #botao = WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.CSS_SELECTOR, '#captchaShortlink > div > div > iframe')))
     #botao = WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.ID, 'recaptcha-anchor')))
+    driver.switch_to.default_content()
+    print("Default")
     botao = driver.find_element(By.XPATH, value='//*[@id="captchaShortlink"]/div/div/iframe').click()
     state = "Okk"
-    #driver.switch_to.default_content()
+    driver.switch_to.default_content()
 except:
     #################################################################################
     #driver.switch_to.default_content()
@@ -205,10 +205,34 @@ except:
         
         
         
-time.sleep(30)
+time.sleep(5)
+#botao = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, '//*[@id="recaptcha-anchor"]/div[1]')))
+#ActionChains(driver).move_to_element(botao).click(botao).perform()
+#botao.click()
+
+#frames = driver.find_elements(By.TAG_NAME, 'iframe')
+#driver.switch_to.frame(frames[9])
+#tpp = WebDriverWait(driver, 20).until(EC.frame_to_be_available_and_switch_to_it((By.XPATH,'/html/body/div[7]/div[4]/iframe')))
+
+
+#WebDriverWait(driver, 10).until(EC.frame_to_be_available_and_switch_to_it((By.CSS_SELECTOR,"iframe[src='https://www.recaptcha.net/recaptcha/api2/bframe?hl=en&v=QENb_qRrX0-mQMyENQjD6Fuj&k=6LcNwNYdAAAAAKXZrWouTBrt8oi1j1wT04ULQSli']")))
+#WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "button#recaptcha-audio-button"))).click()
+
+iframe = driver.find_element(By.XPATH, "/html/body/div/div[4]/iframe")
+driver.switch_to.frame(iframe)
+
+#/html/body/div[7]/div[4]/iframe --> bframe
+#/html/body/div/div/div[3]/div[2]/div[1]/div[1]/div[2]/button --> audio button
+sitekey = driver.find_element(By.ID, 'recaptcha-audio-button').click()
+#sitekey = WebDriverWait(driver, 60).until(EC.element_to_be_clickable((By.ID, 'recaptcha-audio-button')))
+time.sleep(3)
+
+##############################
+#src = driver.find_element(By.ID, "audio-source").get_attribute("src")
 
 try:
-    botao.click()
+    src = driver.find_element(By.ID, "audio-source").get_attribute("src")
+    print("O link é: {}".format(src))
 except:
     #################################################################################
     #driver.switch_to.default_content()
@@ -226,28 +250,11 @@ except:
     time.sleep(5)
     t = driver.find_element(By.XPATH, '/html/body/div[6]/div/div[4]/span/a').get_attribute("href")
     t = str(t)
-    print("Erro ao clicar na porra do botão, confere o print: {}".format(t))
+    #################################################################################
+    print("Imposivel obter src, confira o print: {}".format(t))
     time.sleep(3)
     os.remove('erro.png')
     exit()
-    #################################################################################
-#botao = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, '//*[@id="recaptcha-anchor"]/div[1]')))
-#ActionChains(driver).move_to_element(botao).click(botao).perform()
-#botao.click()
-
-driver.switch_to.default_content()
-time.sleep(3)
-
-frames = driver.find_elements(By.TAG_NAME, 'iframe')
-driver.switch_to.frame(frames[9])
-
-sitekey = driver.find_element(By.XPATH, '//*[@id="recaptcha-audio-button"]').click()
-time.sleep(3)
-
-##############################
-
-src = driver.find_element(By.ID, "audio-source").get_attribute("src")
-print("O link é: {}".format(src))
 
 
 
@@ -287,7 +294,30 @@ time.sleep(3)
 driver.switch_to.default_content()
 time.sleep(3)
 driver.find_element(By.XPATH, '//*[@id="invisibleCaptchaShortlink"]').click()
+driver.switch_to.default_content()
+
+############# PASSOU DO CAPTCHA
 
 
+
+
+
+###### ESPERANDO 10s
+
+def tent():
+    status = "Erro"
+    while status == "Erro":
+        try:
+            ff = driver.find_element(By.XPATH, '//*[@id="td-outer-wrap"]/div/div[2]/div/div/div/center/center/div/a').get_attribute("href")
+            ff = str(ff)
+            if "javascript:" in ff:
+                status = "Erro"
+            else:
+                print(f"Conteúdo: {ff}")
+                status = "Passou"
+        except:
+            status = "Erro"
+            time.sleep(2)
+tent()
 
 print("OK")
